@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<zend-config xmlns:zf="http://framework.zend.com/xml/zend-config-xml/1.0/">
+    <plugin>
+        <pluginName>Web2Print</pluginName>
+        <pluginNiceName>Web2Print Extension for pimcore</pluginNiceName>
+        <pluginIcon></pluginIcon>
+        <pluginDescription>Web2Print Extension for pimcore</pluginDescription>
+        <pluginClassName>Web2Print_Plugin</pluginClassName>
+        <pluginIncludePaths>
+            <path>/Web2Print/lib</path>
+            <path>/Web2Print/controllers</path>
+            <path>/Web2Print/models</path>
+        </pluginIncludePaths>
+        <pluginNamespaces>
+            <namespace>Web2Print</namespace>
+            <namespace>Pimcore</namespace>
+            <namespace>Admin</namespace>
+        </pluginNamespaces>
+
+        <!-- js files with path relative to plugin-directory -->
+        <pluginJsPaths-extjs6>
+            <path>/Web2Print/static6/js/Web2Print/plugin.js</path>
+            <path>/Web2Print/static6/js/Web2Print/favoriteOutputDefinitions.js</path>
+            <path>/Web2Print/static6/js/Web2Print/saveAsFavouriteOutputDefinitionDialog.js</path>
+
+            <path>/Web2Print/static6/js/Web2Print/customAreas/panel.js</path>
+            <path>/Web2Print/static6/js/Web2Print/customAreas/item.js</path>
+
+            <path>/Web2Print/static6/js/pimcore/document/tags/metaentry/abstract.js</path>
+            <path>/Web2Print/static6/js/pimcore/document/tags/metaentry/defaultentry.js</path>
+            <path>/Web2Print/static6/js/pimcore/document/tags/metaentry/table.js</path>
+        </pluginJsPaths-extjs6>
+        <pluginCssPaths-extjs6>
+            <path>/Web2Print/static6/css/admin.css</path>
+        </pluginCssPaths-extjs6>
+        <pluginDocumentEditmodeJsPaths-extjs6>
+            <path>/Web2Print/static6/js/pimcore/document/tags/outputchanneltable.js</path>
+            <path>/Web2Print/static6/js/pimcore/document/tags/customareatable.js</path>
+        </pluginDocumentEditmodeJsPaths-extjs6>
+        <pluginDocumentEditmodeCssPaths-extjs6>
+            <path>/Web2Print/static6/css/admin.css</path>
+        </pluginDocumentEditmodeCssPaths-extjs6>
+    </plugin>
+</zend-config>
+

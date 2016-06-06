@@ -1,0 +1,33 @@
+/**
+ * Pimcore
+ *
+ * This source file is available under two different licenses:
+ * - GNU General Public License version 3 (GPLv3)
+ * - Pimcore Enterprise License (PEL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ * @category   Pimcore
+ * @package    EcommerceFramework
+ * @copyright  Copyright (c) 2009-2016 pimcore GmbH (http://www.pimcore.org)
+ * @license    http://www.pimcore.org/license     GPLv3 and PEL
+ */
+
+
+@page {
+    -ro-media-size: SRA4 portrait;
+    /*-ro-media-size: 255mm 320mm;*/
+    -ro-bleed-width: 5mm;
+    /*-ro-crop-size: registration;*/
+
+    -ro-marks: bleed trim registration;
+
+    -ro-colorbar-top-left: gradient-tint;
+    -ro-colorbar-top-right: progressive-color;
+
+    -ro-colorbar-bottom-left: cmyk(100%, 0%, 0%, 0%) cmyk(75%, 0%, 0%, 0%) cmyk(50%, 0%, 0%, 0%) cmyk(25%, 0%, 0%, 0%)
+    cmyk(0%, 100%, 0%, 0%) cmyk(0%, 75%, 0%, 0%) cmyk(0%, 50%, 0%, 0%) cmyk(0%, 25%, 0%, 0%);
+
+    -ro-colorbar-bottom-right: cmyk(0%, 0%, 25%, 0%) cmyk(0%, 0%, 50%, 0%) cmyk(0%, 0%, 75%, 0%) cmyk(0%, 0%, 100%, 0%)
+    cmyk(0%, 0%, 0%, 25%) cmyk(0%, 0%, 0%, 50%) cmyk(0%, 0%, 0%, 75%) cmyk(0%, 0%, 0%, 100%);
+}

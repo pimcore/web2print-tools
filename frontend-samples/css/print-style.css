@@ -1,0 +1,123 @@
+/**
+ * Pimcore
+ *
+ * This source file is available under two different licenses:
+ * - GNU General Public License version 3 (GPLv3)
+ * - Pimcore Enterprise License (PEL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ * @category   Pimcore
+ * @package    EcommerceFramework
+ * @copyright  Copyright (c) 2009-2016 pimcore GmbH (http://www.pimcore.org)
+ * @license    http://www.pimcore.org/license     GPLv3 and PEL
+ */
+
+
+@page {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 75%;
+    line-height: 120%;
+}
+
+.page {
+    page-break-after: always;
+}
+
+.pimcore_area_content table.outputchannel {
+    width: 100%;
+    border: 0;
+    border-spacing: 0;
+}
+
+.pimcore_area_content table.outputchannel thead {
+    font-weight: bold;
+    background: #F29978;
+}
+
+.pimcore_area_content table.outputchannel tbody tr {
+    border: 0;
+    background: #ECECED;
+}
+
+.pimcore_area_content table.outputchannel tbody tr.even {
+    background: #D9DADB;
+}
+
+.pimcore_area_content table.outputchannel .row-attribute-table-group {
+    font-weight: bold;
+}
+
+
+.pimcore_area_content table.outputchannel td {
+    border: 0;
+    border-left: 1px solid #ffffff;
+    padding: 0.1cm;
+}
+
+.pimcore_area_content table.outputchannel td.metaentry {
+    background: #ffffff;
+    font-weight: bold;
+    page-break-after: avoid;
+}
+
+.pimcore_area_content table.outputchannel td img {
+    text-align: center;
+}
+
+.pimcore_area_content h4 {
+    line-height: 120%;
+    font-size: 12pt;
+    font-weight: bold;
+    border-bottom: 0.5px solid #7F7F7F;
+    color: #CC333A;
+    page-break-after: avoid;
+}
+
+.pimcore_area_content .headline {
+   /*page-break-after: avoid;*/
+}
+
+.pimcore_area_content p {
+    font-size: 10pt;
+}
+
+.product-description-renderlet {
+    width: 100%;
+}
+
+.product-description-renderlet h1, .contentblock.wysiwyg h2 {
+    border-bottom: 1px solid #7F7F7F;
+    line-height: 120%;
+    color: #CC333A;
+    font-size: 18px;
+    margin: 14px 0;
+}
+
+.contentblock.wysiwyg .content {
+    font-family: Arial, Helvetica, sans-serif;
+    hyphens: auto;
+    -ro-column-count: 3;
+}
+
+.product-description-renderlet .mainImage {
+    width: 10cm;
+    height: 10cm;
+    float:left;
+}
+
+.product-description-renderlet p.short-summary {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.product-description-renderlet p.long-summary {
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 1cm;
+    clear: both;
+
+    -ro-column-count: 2;
+}

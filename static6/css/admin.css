@@ -1,0 +1,64 @@
+/**
+ * Pimcore
+ *
+ * This source file is available under two different licenses:
+ * - GNU General Public License version 3 (GPLv3)
+ * - Pimcore Enterprise License (PEL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ * @category   Pimcore
+ * @package    EcommerceFramework
+ * @copyright  Copyright (c) 2009-2016 pimcore GmbH (http://www.pimcore.org)
+ * @license    http://www.pimcore.org/license     GPLv3 and PEL
+ */
+
+
+.plugin_outputdataconfig_icon {
+    background: url("/pimcore/static6/img/flat-color-icons/grid.svg") center center no-repeat !important;
+}
+.plugin_outputdataconfig_icon_overlay:before {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    bottom: 0px;
+    right: 0px;
+    content: "";
+    background: url(/pimcore/static6/img/flat-color-icons/go.svg) center center no-repeat !important;
+}
+
+#pimcore_menu_web2print {
+    background-image: url("/pimcore/static6/img/flat-color-icons/news.svg") !important;
+}
+
+.plugin_web2print_custom_areas {
+    background: url("/pimcore/static6/img/flat-color-icons/area.svg") center center no-repeat !important;
+}
+.plugin_web2print_custom_areas_overlay:before {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    bottom: 0px;
+    right: 0px;
+    content: "";
+    background: url(/pimcore/static6/img/flat-color-icons/star.svg) center center no-repeat !important;
+}
+
+
+
+
+.plugin_web2print_customAreas_config, .plugin_web2print_custom_area_icon {
+    background: url(/pimcore/static/img/icon/layout_content.png) left center no-repeat !important;
+}
+
+
+
+
+.plugin_web2print_customarea_file_css {
+    background: url(/pimcore/static/img/icon/css.png) left center no-repeat !important;
+}
+
+.plugin_web2print_customarea_file_php {
+    background: url(/pimcore/static/img/icon/html.png) left center no-repeat !important;
+}
+

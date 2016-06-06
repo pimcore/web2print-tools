@@ -14,10 +14,11 @@
  * @license    http://www.pimcore.org/license     GPLv3 and PEL
  */
 
+namespace Web2Print;
 
 use \Pimcore\Model\Document;
 
-class Web2Print_Plugin extends \Pimcore\API\Plugin\AbstractPlugin implements \Pimcore\API\Plugin\PluginInterface {
+class Plugin extends \Pimcore\API\Plugin\AbstractPlugin implements \Pimcore\API\Plugin\PluginInterface {
 
     /**
      * @return string $jsClassName

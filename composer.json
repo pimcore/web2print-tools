@@ -1,5 +1,5 @@
 {
-  "name": "pimcore-partner/web2print",
+  "name": "pimcore-partner/Web2Print",
   "type": "pimcore-plugin",
   "require": {
     "pimcore\/installer-plugin": ">=1",

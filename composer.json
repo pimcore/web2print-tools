@@ -2,13 +2,13 @@
   "name": "pimcore-partner/web2print",
   "type": "pimcore-plugin",
   "require": {
-    "pimcore/installer-plugin": ">=1",
-    "pimcore-partner/Elements_OutputDataConfigToolkit": "~1"
+    "pimcore\/installer-plugin": ">=1",
+    "pimcore-partner\/Elements_OutputDataConfigToolkit": "~1"
   },
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/pimcore-partner/web2print"
+      "url": "https://github.com/pimcore-partner/Elements_OutputDataConfigToolkit"
     }
   ]
 }

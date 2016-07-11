@@ -237,7 +237,7 @@ class Outputchanneltable extends Document\Tag implements \Iterator {
         return $dependencies;
     }
 
-    public function getFromWebserviceImport($wsElement) {
+    public function getFromWebserviceImport($wsElement, $document = null, $params = [], $idMapper = null) {
         // currently unsupported
         return array();
     }

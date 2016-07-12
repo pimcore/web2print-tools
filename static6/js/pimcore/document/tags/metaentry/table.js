@@ -24,7 +24,7 @@ pimcore.document.tags.metaentry.table = Class.create(pimcore.document.tags.metae
             name: "name",
             fieldLabel: t('web2print_outputchanneltable_name'),
             length: 255,
-            width: 200,
+            width: 400,
             value: record.data.path
         });
 
@@ -33,7 +33,8 @@ pimcore.document.tags.metaentry.table = Class.create(pimcore.document.tags.metae
             data: record.data.config ? record.data.config.values : []
         });
 
-        var valueGrid = new Ext.grid.EditorGridPanel({
+        var valueGrid = Ext.create('Ext.grid.Panel', {
+            bodyCls: "pimcore_editable_grid",
             tbar: [{
                 xtype: "tbtext",
                 text: t("web2print_outputchanneltable_values")
@@ -41,29 +42,39 @@ pimcore.document.tags.metaentry.table = Class.create(pimcore.document.tags.metae
                 xtype: "button",
                 iconCls: "pimcore_icon_add",
                 handler: function () {
-                    var u = new this.valueStore.recordType({
+                    var u = {
                         value: "",
                         span: 1
-                    });
+                    };
                     this.valueStore.insert(0, u);
                 }.bind(this)
             }],
+            plugins: [
+                Ext.create('Ext.grid.plugin.CellEditing', {
+                    clicksToEdit: 1
+                })
+            ],
+            viewConfig: {
+                plugins: {
+                    ptype: 'gridviewdragdrop',
+                    dragroup: 'element'
+                }
+            },
             style: "margin-top: 10px",
             store: this.valueStore,
-            width: 400,
-            plugins: [new Ext.ux.dd.GridDragDropRowOrder({})],
-            selModel:new Ext.grid.RowSelectionModel({singleSelect:true}),
+            width: "100%",
+            selModel: Ext.create('Ext.selection.RowModel', {}),
             columnLines: true,
             columns: [
-                {header: t("web2print_outputchanneltable_value"), sortable: false, dataIndex: 'value', editor: new Ext.form.TextField({}), width: 320},
-                {header: t("web2print_outputchanneltable_span"), sortable: false, dataIndex: 'span', editor: new Ext.form.NumberField({}), width: 40},
+                {header: t("web2print_outputchanneltable_value"), sortable: false, dataIndex: 'value', editor: new Ext.form.TextField({}), flex: 320},
+                {header: t("web2print_outputchanneltable_span"), sortable: false, dataIndex: 'span', editor: new Ext.form.NumberField({}), width: 80},
                 {
                     xtype: 'actioncolumn',
-                    width: 30,
+                    width: 40,
                     items: [
                         {
                             tooltip: t('remove'),
-                            icon: "/pimcore/static/img/icon/cross.png",
+                            icon: "/pimcore/static6/img/flat-color-icons/delete.svg",
                             handler: function (grid, rowIndex) {
                                 grid.getStore().removeAt(rowIndex);
                             }.bind(this)
@@ -75,9 +86,7 @@ pimcore.document.tags.metaentry.table = Class.create(pimcore.document.tags.metae
         });
 
         var configPanel = new Ext.form.FormPanel({
-            layout: "form",
             bodyStyle: "padding: 10px;",
-            labelWidth: 100,
             autoScroll: true,
             items: [nameText, valueGrid],
             buttons: [{
@@ -90,7 +99,7 @@ pimcore.document.tags.metaentry.table = Class.create(pimcore.document.tags.metae
         });
 
         this.metaEntryWindow = new Ext.Window({
-            width: 450,
+            width: 550,
             height: 300,
             modal: true,
             title: t('web2print_outputchanneltable_metaentry'),

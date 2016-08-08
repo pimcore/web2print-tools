@@ -79,5 +79,5 @@ Awesomizr.createTableOfContents({
 });
 
 ```
-See example: [toc.js](plugins/Web2Print/static6/examples/toc.js)
+See example: [toc.js](https://github.com/pimcore-partner/Web2Print/blob/master/static6/examples/toc.js)
 See full documentation and examples: [pdfreactor-manual](http://www.pdfreactor.com/product/doc/manual.pdf)

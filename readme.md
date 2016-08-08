@@ -6,10 +6,11 @@ Adds following additional features to the web2print functionality of pimcore.
 - Custom Document Areas
 - PDFreactor controller plugin
 - samples for document areas, css styles, etc.
+- table of contents creation (awesomizr.js)
 
 
 ## Favorite Output Channels
-Based on the OutputDataConfigToolkit (https://github.com/pimcore-partner/Elements_OutputDataConfigToolkit) this feature allowes
+Based on the OutputDataConfigToolkit (https://github.com/pimcore-partner/Elements_OutputDataConfigToolkit) this feature allows
 to save output channels centrally and reuse them in several places.
 
 ![favorite-output-channels](doc/img/favorite-output-channels.png)

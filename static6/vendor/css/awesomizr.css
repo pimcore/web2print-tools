@@ -1,0 +1,38 @@
+/* Table of Contents */
+
+@media screen {
+    .ro-toc a {
+        color: gray;
+    }
+}
+
+@media print {
+    .ro-toc a {
+        color: black;
+        text-decoration: none;
+    }
+
+    /* leader can be dotted/space/...
+    /* page is counter variable for page number in toc
+     */
+    .ro-toc a::after {
+        content: leader(space) target-counter(-ro-attr(href url), page);
+    }
+
+}
+
+.ro-toc-heading::before {
+    content: "";
+}
+
+.ro-toc {
+    break-after: always;
+}
+
+.ro-toc > h2 {
+    break-before: avoid;
+}
+
+.ro-toc div {
+    margin-bottom: 1.5pt;
+}

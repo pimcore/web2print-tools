@@ -54,3 +54,29 @@ Usage in controller action:
 ```
 
 With url parameter html=1 pdf rendering is deactivated.
+
+
+## Create table of contents
+
+```js
+
+/**
+ * - include plugins/Web2Print/static6/vendor/js/awesomizr.js
+ * - include plugins/Web2Print/static6/vendor/css/awesomizr.css
+ */
+
+Awesomizr.createTableOfContents({
+    insertiontarget: '#toc-wrapper',
+    elements: ['h1','h2'],
+    container: {tag: 'ul', addClass: 'toc'},
+    line: {tag: 'li'},
+    disabledocumenttitle: true,
+    toctitle: ' ',
+    text: function (elem) {
+        return elem.textContent;
+    }
+});
+
+```
+See example: [toc.js](plugins/Web2Print/static6/examples/toc.js)
+See full documentation and examples: [pdfreactor-manual](http://www.pdfreactor.com/product/doc/manual.pdf)

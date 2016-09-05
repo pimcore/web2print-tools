@@ -64,7 +64,7 @@ class ReactorPDF extends \Zend_Controller_Plugin_Abstract {
 
     protected function doCreatePDF8($html) {
         $web2PrintConfig = Config::getWeb2PrintConfig();
-        include_once(PIMCORE_PATH . '/lib/Pimcore/Web2Print/Processor/api/PDFreactor.class.php');
+        include_once('Pimcore/Web2Print/Processor/api/v' . $web2PrintConfig->get('pdfreactorVersion', '8.0') . '/PDFreactor.class.php');
 
         $port = ((string) $web2PrintConfig->pdfreactorServerPort) ? (string) $web2PrintConfig->pdfreactorServerPort : "9423";
         $pdfreactor = new \PDFreactor("http://" . $web2PrintConfig->pdfreactorServer . ":" . $port . "/service/rest");

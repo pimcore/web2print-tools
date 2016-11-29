@@ -1,15 +1,4 @@
-
-# !!! IMPORTANT !!!
-# AS OF VERSION 4.1.0, WEB-TO-PRINT IS PART OF THE PIMCORE CORE 
-# !!! THIS PLUGIN IS UNSUPPORTED !!!
-    
-    
-    
-    
-    
-    
-    
-    
+   
     
 # Web2Print Plugin for pimcore
 

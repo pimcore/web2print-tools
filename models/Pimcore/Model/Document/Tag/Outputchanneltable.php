@@ -121,7 +121,7 @@ class Outputchanneltable extends Document\Tag implements \Iterator {
         $return = array();
 
         if (is_array($this->elements) && count($this->elements) > 0) {
-            foreach ($this->elements as $element) {
+            foreach ($this->elements as $index => $element) {
                 if ($element instanceof \Pimcore\Model\Object\Concrete) {
                     $return[] = array($element->getId(), $element->getFullPath(), "object", $element->getClassName());
                 }
@@ -132,7 +132,7 @@ class Outputchanneltable extends Document\Tag implements \Iterator {
 
                     $subtype = str_replace("Pimcore\\Model\\Document\\Tag\\Outputchanneltable\\MetaEntry\\", "", get_class($element));
 
-                    $return[] = array("a1", $element->getName(), "meta", strtolower($subtype), $element->getConfig());
+                    $return[] = array("a" . $index, $element->getName(), "meta", strtolower($subtype), $element->getConfig());
                 }
             }
         }

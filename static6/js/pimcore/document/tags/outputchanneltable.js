@@ -48,7 +48,9 @@ pimcore.document.tags.outputchanneltable = Class.create(pimcore.document.tag, {
         this.documentId = data.documentId;
         this.outputChannelName = "web2print_" + this.name;
 
-        this.outputChannel = Ext.decode(data.outputChannel);
+        if(data.outputChannel) {
+            this.outputChannel = Ext.decode(data.outputChannel);
+        }
 
         this.setupWrapper();
 
@@ -292,7 +294,12 @@ pimcore.document.tags.outputchanneltable = Class.create(pimcore.document.tag, {
         if(!this.options.disableClassSelection){
             items.push(this.classSelector);
         }
-        items.push(this.gridElement, this.editOutputChannelButton, this.saveOutputChannelButton, this.configSelection);
+        items.push(this.gridElement, this.editOutputChannelButton);
+
+        if(!this.options.disableFavoriteOutputChannel){
+            items.push(this.saveOutputChannelButton, this.configSelection)
+        }
+
         return items;
     },
 
@@ -356,7 +363,10 @@ pimcore.document.tags.outputchanneltable = Class.create(pimcore.document.tag, {
         this.empty();
         this.gridElement.setDisabled(false);
         this.configSelector.setDisabled(false);
-        this.configSelector.store.setBaseParam("classId", this.getCurrentClassId());
+
+        var proxy = this.configSelector.store.getProxy();
+        proxy.extraParams.classId = this.getCurrentClassId();
+
         this.configSelector.store.load({params: {classId: this.getCurrentClassId()}});
         this.loadConfigButton.setDisabled(false);
         this.editOutputChannelButton.setDisabled(false);

@@ -3,7 +3,7 @@
   "type": "pimcore-plugin",
   "require": {
     "pimcore\/installer-plugin": ">=1",
-    "pimcore-partner\/Elements_OutputDataConfigToolkit": "1.0.0"
+    "pimcore-partner\/Elements_OutputDataConfigToolkit": "~1.0"
   },
   "repositories": [
     {

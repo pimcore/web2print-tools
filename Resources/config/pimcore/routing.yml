@@ -1,0 +1,4 @@
+_pimcore_web2printtools_backend:
+    resource: "@Web2PrintToolsBundle/Controller/"
+    type:     annotation
+    prefix:   /admin/web2printtools

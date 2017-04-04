@@ -1,0 +1,5 @@
+pimcore:
+    documents:
+        tags:
+            map:
+                outputchanneltable: Web2PrintToolsBundle\Document\Tag\Outputchanneltable

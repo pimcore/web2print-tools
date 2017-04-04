@@ -1,0 +1,22 @@
+web2print_area_outputchannel: Output Channel
+web2print_outputchanneltable_name: Name
+web2print_outputchanneltable_value: Value
+web2print_outputchanneltable_span: Table span along all entries (works only without subgroups)
+web2print_outputchanneltable_values: Values
+web2print_outputchanneltable_metaentry: Meta Entry
+web2print_area_load: Load
+web2print_area_edit_outputchannel: Edit current Output Channel Config
+web2print_area_save_outputchannel: Save as Favorite Output Channel Config
+web2print_favorite_outputdefinitions: Favorite Output Channel Configurations
+web2print_outputchanneltable_save_favorite: Save Output Channel Config as Favorite
+web2print_outputchanneltable_save_favorite_name: save new
+web2print_outputchanneltable_overwrite_favorite: overwrite existing
+web2print_outputchanneltable_save_favorite_success: Saving Output Channel Config as Favorite successful
+web2print_outputchanneltable_save_favorite_error: Saving Output Channel Config as Favorite failed
+web2print_outputchanneltable_load_favorite:  Loading
+web2print_outputchanneltable_load_favorite_success:  Loading saved Output Channel Config successful
+web2print_outputchanneltable_last_loaded_favorite: last loaded
+web2print_outputchanneltable_save_favorite_name_exists:  Name exists already
+web2print_outputchanneltable_overwrite_existing:  Do you want to overwrite the existing Output Channel Config?
+web2print_web2print_mainmenu:  Web2Print-Tools
+web2print_web2print_favourite_output_channels:  Web2Print Favorite Outputchannels

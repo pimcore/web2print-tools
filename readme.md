@@ -83,3 +83,9 @@ Awesomizr.createTableOfContents({
 ```
 See example: [toc.js](https://github.com/pimcore-partner/Web2Print/blob/master/static6/examples/toc.js)
 See full documentation and examples: [pdfreactor-manual](http://www.pdfreactor.com/product/doc/manual.pdf)
+
+
+# Migration from Pimcore 4
+- change table name from `plugin_web2print_favorite_outputdefinitions` to `bundle_web2print_favorite_outputdefinitions`
+- changed namespace from `Web2Print` to `Web2PrintToolsBundle`
+- renamed permission from `plugin_web2print_favourite_output_channels' to `web2print_web2print_favourite_output_channels`

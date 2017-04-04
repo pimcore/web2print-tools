@@ -1,6 +1,4 @@
-   
-    
-# Web2Print Plugin for pimcore
+# Web2Print Plugin for Pimcore
 
 Adds following additional features to the web2print functionality of pimcore.
 - Favorite Output Channels
@@ -31,16 +29,9 @@ echo $this->outputchanneltable("tableconfig");
 Also see included sample areas PrintColumnAttributeTable and PrintRowAttributeTable.
 
 
-## Custom Document Areas
-Custom Document Areas allow area creation directly in pimcore backend. Users can add frontend and editmode php/css and also can
-access list of object data assigned in editmode. The data is available in frontend php file as ```$this->dataArray```
-
-![outputputcanneltable](doc/img/custom-areas.png)
-
-
-## PDFreactor Controller Plugin
-The PDFreactor Controller Plugin allows to integrate web2print functionality directly to an controller action without using
-web2print documents. It just renders the action output as PDF and returns it instead of html.
+## PDFreactor PDF Creation Helper
+PDFreactor PDF Creation Helper allows you to integrate web2print functionality directly into the controller and 
+creates a pdf response from a given HTML. 
 
 Usage in controller action:
 ```php
@@ -50,8 +41,8 @@ Usage in controller action:
 
         //do some stuff...
 
-        $front = Zend_Controller_Front::getInstance();
-        $front->registerPlugin(new \Web2Print\Controller\Plugin\ReactorPDF(), 777);
+        $reactor = new ReactorPDF();
+        return $reactor->createPDFResponse($renderedHTML);
 
     }
 ```
@@ -64,8 +55,8 @@ With url parameter html=1 pdf rendering is deactivated.
 ```js
 
 /**
- * - include plugins/Web2Print/static6/vendor/js/awesomizr.js
- * - include plugins/Web2Print/static6/vendor/css/awesomizr.css
+ * - include bundles/web2printtools/vendor/js/awesomizr.js
+ * - include bundles/web2printtools/vendor/css/awesomizr.css
  */
 
 Awesomizr.createTableOfContents({
@@ -81,7 +72,7 @@ Awesomizr.createTableOfContents({
 });
 
 ```
-See example: [toc.js](https://github.com/pimcore-partner/Web2Print/blob/master/static6/examples/toc.js)
+See example: [toc.js](https://github.com/pimcore/web2print-tools/blob/master/Resources/public/examples/toc.js)
 See full documentation and examples: [pdfreactor-manual](http://www.pdfreactor.com/product/doc/manual.pdf)
 
 
@@ -89,3 +80,5 @@ See full documentation and examples: [pdfreactor-manual](http://www.pdfreactor.c
 - change table name from `plugin_web2print_favorite_outputdefinitions` to `bundle_web2print_favorite_outputdefinitions`
 - changed namespace from `Web2Print` to `Web2PrintToolsBundle`
 - renamed permission from `plugin_web2print_favourite_output_channels' to `web2print_web2print_favourite_output_channels`
+- removed Custom Document Areas
+- PDFReactor controller plugin replaced by PDFreactor PDF Creation Helper

@@ -15,30 +15,33 @@
  */
 
 
-namespace Web2Print\Controller\Plugin;
-
+namespace Web2PrintToolsBundle\Tools;
 
 use Pimcore\Config;
+use Symfony\Component\HttpFoundation\Response;
 
 class ReactorPDF extends \Zend_Controller_Plugin_Abstract {
+
+    /**
+     * @var string
+     */
+    protected $overlay;
+
+    /**
+     * @var string
+     */
+    protected $filename;
 
     public function __construct($overlay = null, $filename = "export.pdf") {
         $this->overlay = $overlay;
         $this->filename = $filename;
     }
 
-    public function dispatchLoopShutdown() {
-
-        if(!\Pimcore\Tool::isHtmlResponse($this->getResponse())) {
-            return;
-        }
-
-        $body = $this->getResponse()->getBody();
-
-        $this->createPDF($body);
-    }
-
-    public function createPDF($html, $outputPdf = true) {
+    /**
+     * @param $html string
+     * @return Response
+     */
+    public function createPDFResponse($html) {
 
         file_put_contents(PIMCORE_TEMPORARY_DIRECTORY . "/pdf-reactor-input.html", $html);
         $html = preg_replace('/[\x00-\x09\x0B\x0C\x0E-\x1F\x7F]/', '', $html);
@@ -46,18 +49,16 @@ class ReactorPDF extends \Zend_Controller_Plugin_Abstract {
         if(!$_GET['html']) {
             $result = $this->doCreatePDF8($html);
 
-            if($outputPdf) {
-                // Set the correct header for PDF output and echo PDF content
-                header("Content-Type: application/pdf");
-                header("Content-Disposition: inline; filename=\"{$this->filename}\";");
-                header("Cache-Control: private", true);
-                header_remove("Pragma");
-                echo $result;
-            } else {
-                return $result;
-            }
+            $headers = [
+                'Content-Type' => 'application/pdf',
+                'Content-Disposition' => 'inline; filename=" . ' . $this->filename . '";"',
+                'Cache-Control' => 'private'
+            ];
 
-            exit;
+            return new Response($result, 200, $headers);
+
+        } else {
+            return new Response($html);
         }
     }
 
@@ -67,7 +68,9 @@ class ReactorPDF extends \Zend_Controller_Plugin_Abstract {
         include_once('Pimcore/Web2Print/Processor/api/v' . $web2PrintConfig->get('pdfreactorVersion', '8.0') . '/PDFreactor.class.php');
 
         $port = ((string) $web2PrintConfig->pdfreactorServerPort) ? (string) $web2PrintConfig->pdfreactorServerPort : "9423";
-        $pdfreactor = new \PDFreactor("http://" . $web2PrintConfig->pdfreactorServer . ":" . $port . "/service/rest");
+        $protocol = ((string) $web2PrintConfig->pdfreactorProtocol) ? (string) $web2PrintConfig->pdfreactorProtocol : "http";
+
+        $pdfreactor = new \PDFreactor($protocol . "://" . $web2PrintConfig->pdfreactorServer . ":" . $port . "/service/rest");
 
         $reactorConfig = [
             "document" => $html,
@@ -76,6 +79,12 @@ class ReactorPDF extends \Zend_Controller_Plugin_Abstract {
             "addBookmarks" => true,
             "javaScriptMode" => \JavaScriptMode::ENABLED_NO_LAYOUT
         ];
+
+        if($this->overlay) {
+            $reactorConfig['mergeURL'] = (string) $web2PrintConfig->pdfreactorBaseUrl . $this->overlay;
+            $reactorConfig['mergeMode'] = \MergeMode::OVERLAY;
+            $reactorConfig['overlayRepeat'] = \OverlayRepeat::ALL_PAGES;
+        }
 
         if (trim($web2PrintConfig->pdfreactorLicence)) {
             $reactorConfig["licenseKey"] = trim($web2PrintConfig->pdfreactorLicence);

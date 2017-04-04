@@ -1,8 +1,4 @@
 /**
- * Created by jraab on 08.08.2016.
- */
-
-/**
  * Creates a table of contents into the passed 'insertiontarget' container tag.
  * 
  * - include plugins/Web2Print/static6/vendor/js/awesomizr.js

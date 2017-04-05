@@ -7,9 +7,9 @@
         <pluginDescription>Web2Print Extension for pimcore</pluginDescription>
         <pluginClassName>\Web2Print\Plugin</pluginClassName>
         <pluginIncludePaths>
-            <path>/Web2Print/lib</path>
-            <path>/Web2Print/controllers</path>
-            <path>/Web2Print/models</path>
+            <path>/Web2printToolsBundle/lib</path>
+            <path>/Web2printToolsBundle/controllers</path>
+            <path>/Web2printToolsBundle/models</path>
         </pluginIncludePaths>
         <pluginNamespaces>
             <namespace>Web2Print</namespace>
@@ -42,3 +42,4 @@
         </pluginDocumentEditmodeCssPaths-extjs6>
     </plugin>
 </zend-config>
+

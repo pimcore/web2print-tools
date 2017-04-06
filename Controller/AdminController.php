@@ -22,7 +22,7 @@ use Web2PrintToolsBundle\FavoriteOutputDefinition;
  * Class AdminController
  * @Route("/admin")
  */
-class AdminController extends \Pimcore\Bundle\PimcoreAdminBundle\Controller\AdminController {
+class AdminController extends \Pimcore\Bundle\AdminBundle\Controller\AdminController {
 
     /**
      * @param Request $request

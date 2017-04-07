@@ -23,7 +23,7 @@ pimcore.bundle.web2print.favoriteOutputDefinitionsTable = Class.create({
 
     activate: function (filter) {
         var tabPanel = Ext.getCmp("pimcore_panel_tabs");
-        tabPanel.setActiveItem("plugin_web2print_favorite_outputdefinitions");
+        tabPanel.setActiveItem("bundle_web2print_favorite_outputdefinitions");
     },
 
     getHint: function () {
@@ -33,7 +33,7 @@ pimcore.bundle.web2print.favoriteOutputDefinitionsTable = Class.create({
     getTabPanel: function () {
         if (!this.panel) {
             this.panel = new Ext.Panel({
-                id: "plugin_web2print_favorite_outputdefinitions",
+                id: "bundle_web2print_favorite_outputdefinitions",
                 iconCls: "bundle_outputdataconfig_icon bundle_outputdataconfig_icon_overlay",
                 title: t("web2print_favorite_outputdefinitions"),
                 border: false,
@@ -44,7 +44,7 @@ pimcore.bundle.web2print.favoriteOutputDefinitionsTable = Class.create({
 
             var tabPanel = Ext.getCmp("pimcore_panel_tabs");
             tabPanel.add(this.panel);
-            tabPanel.setActiveItem("plugin_web2print_favorite_outputdefinitions");
+            tabPanel.setActiveItem("bundle_web2print_favorite_outputdefinitions");
 
             this.panel.on("destroy", function () {
                 pimcore.globalmanager.remove("web2print.favorite_outputdefinitions");
@@ -119,7 +119,7 @@ pimcore.bundle.web2print.favoriteOutputDefinitionsTable = Class.create({
                             configuration: Ext.decode(data.data.configuration)
                         };
 
-                        var dialog = new pimcore.plugin.outputDataConfigToolkit.OutputDataConfigDialog(
+                        var dialog = new pimcore.bundle.outputDataConfigToolkit.OutputDataConfigDialog(
                             channel,
                             this.saveConfigDialog.bind(this, grid, rowIndex)
                         );

@@ -18,7 +18,7 @@ namespace Web2PrintToolsBundle\Tools;
 use Pimcore\Config;
 use Symfony\Component\HttpFoundation\Response;
 
-class ReactorPDF extends \Zend_Controller_Plugin_Abstract {
+class ReactorPDF {
 
     /**
      * @var string

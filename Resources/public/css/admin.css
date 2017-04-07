@@ -29,10 +29,10 @@
     background-image: url("/pimcore/static6/img/flat-color-icons/news.svg") !important;
 }
 
-.plugin_web2print_custom_areas {
+.bundle_web2print_custom_areas {
     background: url("/pimcore/static6/img/flat-color-icons/area.svg") center center no-repeat !important;
 }
-.plugin_web2print_custom_areas_overlay:before {
+.bundle_web2print_custom_areas_overlay:before {
     position: absolute;
     width: 12px;
     height: 12px;
@@ -45,18 +45,18 @@
 
 
 
-.plugin_web2print_customAreas_config, .plugin_web2print_custom_area_icon {
+.bundle_web2print_customAreas_config, .bundle_web2print_custom_area_icon {
     background: url(/pimcore/static6/img/icon/layout_content.png) left center no-repeat !important;
 }
 
 
 
 
-.plugin_web2print_customarea_file_css {
+.bundle_web2print_customarea_file_css {
     background: url(/pimcore/static6/img/icon/css.png) left center no-repeat !important;
 }
 
-.plugin_web2print_customarea_file_php {
+.bundle_web2print_customarea_file_php {
     background: url(/pimcore/static6/img/icon/html.png) left center no-repeat !important;
 }
 

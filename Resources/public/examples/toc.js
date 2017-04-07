@@ -15,8 +15,8 @@
 /**
  * Creates a table of contents into the passed 'insertiontarget' container tag.
  * 
- * - include plugins/Web2Print/static6/vendor/js/awesomizr.js
- * - include plugins/Web2Print/static6/vendor/css/awesomizr.css
+ * - include bundles/web2printtools/vendor/js/awesomizr.js
+ * - include bundles/web2printtools/vendor/css/awesomizr.css
  *
  * Make sure css variable "page" is set in your script to get the page numbers
  * for the toc.

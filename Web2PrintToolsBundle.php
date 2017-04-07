@@ -33,7 +33,7 @@ class Web2PrintToolsBundle extends AbstractPimcoreBundle
     public function getJsPaths()
     {
         return [
-            '/bundles/web2printtools/js/Web2Print/plugin.js',
+            '/bundles/web2printtools/js/Web2Print/bundle.js',
             '/bundles/web2printtools/js/Web2Print/favoriteOutputDefinitions.js',
             '/bundles/web2printtools/js/Web2Print/saveAsFavouriteOutputDefinitionDialog.js',
             '/bundles/web2printtools/js/pimcore/document/tags/metaentry/abstract.js',

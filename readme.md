@@ -1,11 +1,9 @@
-# Web2Print Plugin for Pimcore
+# Web2Print Tools Bundle for Pimcore
 
-Adds following additional features to the web2print functionality of pimcore.
+Adds following additional features to the web2print functionality of Pimcore.
 - Favorite Output Channels
 - Document Editable for Configurable Tables
-- Custom Document Areas
-- PDFreactor controller plugin
-- samples for document areas, css styles, etc.
+- PDFreactor controller tool
 - table of contents creation (awesomizr.js)
 
 
@@ -78,7 +76,14 @@ See full documentation and examples: [pdfreactor-manual](http://www.pdfreactor.c
 
 # Migration from Pimcore 4
 - change table name from `plugin_web2print_favorite_outputdefinitions` to `bundle_web2print_favorite_outputdefinitions`
+```sql
+RENAME TABLE plugin_web2print_favorite_outputdefinitions TO bundle_web2print_favorite_outputdefinitions; 
+```
 - changed namespace from `Web2Print` to `Web2PrintToolsBundle`
 - renamed permission from `plugin_web2print_favourite_output_channels' to `web2print_web2print_favourite_output_channels`
+```sql
+UPDATE users_permission_definitions SET `key` = REPLACE(`key`, 'plugin_web2print_favourite_output_channels', 'web2print_web2print_favourite_output_channels');
+UPDATE users SET permissions = REPLACE(`permissions`, 'plugin_web2print_favourite_output_channels', 'web2print_web2print_favourite_output_channels');
+```
 - removed Custom Document Areas
 - PDFReactor controller plugin replaced by PDFreactor PDF Creation Helper

@@ -217,7 +217,7 @@ pimcore.document.tags.outputchanneltable = Class.create(pimcore.document.tag, {
             xtype: "combo",
             store: new Ext.data.JsonStore({
                 proxy: {
-                    url: '/plugin/Web2Print/admin/favorite-output-definitions',
+                    url: '/admin/web2printtools/admin/favorite-output-definitions',
                     type: 'ajax',
                     reader: {
                         type: 'json',
@@ -384,12 +384,12 @@ pimcore.document.tags.outputchanneltable = Class.create(pimcore.document.tag, {
     },
 
     saveFavoriteConfig: function() {
-        this.saveFavoriteConfigDialog = new window.parent.pimcore.plugin.web2print.SaveAsFavouriteOutputDefinitionDialog(this.getCurrentClassId(), this.doSaveFavoriteConfig.bind(this));
+        this.saveFavoriteConfigDialog = new window.parent.pimcore.bundle.web2print.SaveAsFavouriteOutputDefinitionDialog(this.getCurrentClassId(), this.doSaveFavoriteConfig.bind(this));
     },
 
     doSaveFavoriteConfig: function(params, force) {
         Ext.Ajax.request({
-            url: '/plugin/Web2Print/admin/save-or-update-favorite-output-definition',
+            url: '/admin/web2printtools/admin/save-or-update-favorite-output-definition',
             method: 'POST',
             params: {
                 text: params.text,
@@ -435,7 +435,7 @@ pimcore.document.tags.outputchanneltable = Class.create(pimcore.document.tag, {
 
     openConfigDialog: function() {
         var outputChannel = this.createOrGetOutputChannel();
-        var dialog = new window.parent.pimcore.plugin.outputDataConfigToolkit.OutputDataConfigDialog(outputChannel, this.saveConfigDialog.bind(this), this.allowedOperators);
+        var dialog = new window.parent.pimcore.bundle.outputDataConfigToolkit.OutputDataConfigDialog(outputChannel, this.saveConfigDialog.bind(this), this.allowedOperators);
     },
 
     saveConfigDialog: function(data) {
@@ -446,7 +446,7 @@ pimcore.document.tags.outputchanneltable = Class.create(pimcore.document.tag, {
         this.configSelector.setValue("");
 
         Ext.Ajax.request({
-            url: '/plugin/Elements_OutputDataConfigToolkit/admin/get-attribute-labels',
+            url: '/admin/outputdataconfig/admin/get-attribute-labels',
             method: 'POST',
             params: {
                 classId: this.outputChannel.o_classId,

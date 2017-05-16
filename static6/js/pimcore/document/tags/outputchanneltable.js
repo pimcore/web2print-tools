@@ -205,6 +205,7 @@ pimcore.document.tags.outputchanneltable = Class.create(pimcore.document.tag, {
             store: possibleClasses,
             mode: "local",
             name: "class",
+            cls : "web2print-outputchannel-class-selector",
             triggerAction: "all",
             forceSelection: true,
             value: this.selectedClass,

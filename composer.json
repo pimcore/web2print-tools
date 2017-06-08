@@ -7,7 +7,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Web2PrintToolsBundle\\src\\": ""
+      "Web2PrintToolsBundle\\": "src/"
     }
   },
   "extra": {

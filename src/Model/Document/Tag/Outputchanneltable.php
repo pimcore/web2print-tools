@@ -121,10 +121,10 @@ class Outputchanneltable extends Document\Tag implements \Iterator {
 
         if (is_array($this->elements) && count($this->elements) > 0) {
             foreach ($this->elements as $index => $element) {
-                if ($element instanceof \Pimcore\Model\Object\Concrete) {
+                if ($element instanceof \Pimcore\Model\DataObject\Concrete) {
                     $return[] = array($element->getId(), $element->getFullPath(), "object", $element->getClassName());
                 }
-                else if ($element instanceof \Pimcore\Model\Object\AbstractObject) {
+                else if ($element instanceof \Pimcore\Model\DataObject\AbstractObject) {
                     $return[] = array($element->getId(), $element->getFullPath(), "object", "folder");
                 }
                 else if($element instanceof MetaEntry) {
@@ -224,7 +224,7 @@ class Outputchanneltable extends Document\Tag implements \Iterator {
 
         if (is_array($this->elements) && count($this->elements) > 0) {
             foreach ($this->elements as $element) {
-                if ($element instanceof \Pimcore\Model\Object\AbstractObject) {
+                if ($element instanceof \Pimcore\Model\DataObject\AbstractObject) {
 
                     $key = "object_" . $element->getO_Id();
 

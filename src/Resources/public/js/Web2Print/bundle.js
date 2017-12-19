@@ -68,7 +68,7 @@ pimcore.bundle.web2print = Class.create(pimcore.plugin.admin, {
                     this.navEl = Ext.get(
                         insertPoint.insertHtml(
                             "afterEnd",
-                            '<li id="pimcore_menu_web2print" class="pimcore_menu_item icon-print">' + t('web2print_web2print_mainmenu') + '</li>'
+                            '<li id="pimcore_menu_web2print" class="pimcore_menu_item icon-print compatibility">' + t('web2print_web2print_mainmenu') + '</li>'
                         )
                     );
                 }

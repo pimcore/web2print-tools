@@ -36,7 +36,7 @@ class AdminController extends \Pimcore\Bundle\AdminBundle\Controller\AdminContro
                 $def = FavoriteOutputDefinition::getById($id['id']);
                 if(!empty($def)) {
                     $def->delete();
-                    return $this->json(array("data" => array(), "success" => true));
+                    return $this->adminJson(array("data" => array(), "success" => true));
                 } else {
                     throw new \Exception("OutputDefinition with id " . $id . " not found.");
                 }
@@ -48,7 +48,7 @@ class AdminController extends \Pimcore\Bundle\AdminBundle\Controller\AdminContro
                 if(!empty($def)) {
                     $def->setValues($data);
                     $def->save();
-                    return $this->json(array("data" => get_object_vars($def), "success" => true));
+                    return $this->adminJson(array("data" => get_object_vars($def), "success" => true));
                 } else {
                     throw new \Exception("Definition with id " . $data['id'] . " not found.");
                 }
@@ -58,7 +58,7 @@ class AdminController extends \Pimcore\Bundle\AdminBundle\Controller\AdminContro
                 $def = new FavoriteOutputDefinition();
                 $def->setValues($data);
                 $def->save();
-                return $this->json(array("data" => get_object_vars($def), "success" => true));
+                return $this->adminJson(array("data" => get_object_vars($def), "success" => true));
             }
         } else {
 
@@ -84,7 +84,7 @@ class AdminController extends \Pimcore\Bundle\AdminBundle\Controller\AdminContro
             if($request->get("filter")) {
                 $filterString = $request->get("filter");
                 $filters = json_decode($filterString, true);
-                
+
                 $db = \Pimcore\Db::get();
                 foreach($filters as $f) {
 
@@ -101,7 +101,7 @@ class AdminController extends \Pimcore\Bundle\AdminBundle\Controller\AdminContro
                 $definitions[] = get_object_vars($u);
             }
 
-            return $this->json(array("data" => $definitions, "success" => true, "total" => $list->getTotalCount()));
+            return $this->adminJson(array("data" => $definitions, "success" => true, "total" => $list->getTotalCount()));
         }
     }
 
@@ -121,7 +121,7 @@ class AdminController extends \Pimcore\Bundle\AdminBundle\Controller\AdminContro
             $definitions[] = get_object_vars($u);
         }
 
-        return $this->json(array("data" => $definitions, "success" => true, "total" => $list->getTotalCount()));
+        return $this->adminJson(array("data" => $definitions, "success" => true, "total" => $list->getTotalCount()));
     }
 
     /**
@@ -137,7 +137,7 @@ class AdminController extends \Pimcore\Bundle\AdminBundle\Controller\AdminContro
         if($id && $savedConfig) {
             $savedConfig->setConfiguration($configuration);
             $savedConfig->save();
-            return $this->json(array("success" => true));
+            return $this->adminJson(array("success" => true));
         } else if($newName) {
 
             $list = new FavoriteOutputDefinition\Listing();
@@ -145,17 +145,17 @@ class AdminController extends \Pimcore\Bundle\AdminBundle\Controller\AdminContro
             $list->setCondition("o_classId = " . $list->quote($classId) . " AND description = " . $list->quote($newName));
             $existingOnes = $list->load();
             if(!empty($existingOnes) && !$request->get("force")) {
-                return $this->json(array("success" => false, "nameexists" => true, "id" => $existingOnes[0]->getId()));
+                return $this->adminJson(array("success" => false, "nameexists" => true, "id" => $existingOnes[0]->getId()));
             } else {
                 $newConfiguration = new FavoriteOutputDefinition();
                 $newConfiguration->setO_ClassId($request->get("classId"));
                 $newConfiguration->setDescription($newName);
                 $newConfiguration->setConfiguration($configuration);
                 $newConfiguration->save();
-                return $this->json(array("success" => true));
+                return $this->adminJson(array("success" => true));
             }
         } else {
-            return $this->json(array("success" => false));
+            return $this->adminJson(array("success" => false));
         }
     }
 

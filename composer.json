@@ -2,7 +2,11 @@
   "name": "pimcore/web2print-tools-bundle",
   "type": "pimcore-bundle",
   "license": "GPL-3.0+",
+  "config": {
+    "sort-packages": true
+  },
   "require": {
+    "pimcore/core-version": "~5.1.0",
     "pimcore/output-data-config-toolkit-bundle": "~2"
   },
   "autoload": {

@@ -74,6 +74,14 @@ See example: [toc.js](https://github.com/pimcore/web2print-tools/blob/master/Res
 See full documentation and examples: [pdfreactor-manual](http://www.pdfreactor.com/product/doc/manual.pdf)
 
 
+## Running with Pimcore < 5.4
+With Pimcore 5.4 the location of static Pimcore files like icons has changed. In order to make this bundle work 
+with Pimcore < 5.4, please add following rewrite rule to your `.htaccess`.
+```
+    # rewrite rule for pre pimcore 5.4 core static files
+    RewriteRule ^bundles/pimcoreadmin/(.*) /pimcore/static6/$1 [PT,L]
+``` 
+
 # Migration from Pimcore 4
 - change table name from `plugin_web2print_favorite_outputdefinitions` to `bundle_web2print_favorite_outputdefinitions`
 ```sql

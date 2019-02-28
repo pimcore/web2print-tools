@@ -30,7 +30,7 @@ pimcore.bundle.web2print.SaveAsFavouriteOutputDefinitionDialog = Class.create({
             disabled: true,
             store: new Ext.data.JsonStore({
                 proxy: {
-                    url: '/admin/outputdataconfig/admin/favorite-output-definitions',
+                    url: '/admin/web2printtools/admin/favorite-output-definitions',
                     type: 'ajax',
                     reader: {
                         type: 'json',

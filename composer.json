@@ -6,7 +6,7 @@
     "sort-packages": true
   },
   "require": {
-    "pimcore/core-version": ">=5.2.0 <5.8",
+    "pimcore/core-version": ">=5.2.0 <5.9",
     "pimcore/output-data-config-toolkit-bundle": "~2"
   },
   "autoload": {

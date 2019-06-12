@@ -264,7 +264,7 @@ pimcore.document.tags.outputchanneltable = Class.create(pimcore.document.tag, {
             text: t("web2print_area_edit_outputchannel"),
             disabled: !this.selectedClass,
             style: "margin-top: 10px; float:left;",
-            iconCls: "bundle_outputdataconfig_icon bundle_outputdataconfig_icon_overlay",
+            iconCls: "bundle_outputdataconfig_icon",
             handler: this.openConfigDialog.bind(this)
         });
 

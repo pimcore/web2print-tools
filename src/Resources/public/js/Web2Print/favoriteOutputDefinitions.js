@@ -34,7 +34,7 @@ pimcore.bundle.web2print.favoriteOutputDefinitionsTable = Class.create({
         if (!this.panel) {
             this.panel = new Ext.Panel({
                 id: "bundle_web2print_favorite_outputdefinitions",
-                iconCls: "bundle_outputdataconfig_icon bundle_outputdataconfig_icon_overlay",
+                iconCls: "bundle_outputdataconfig_icon",
                 title: t("web2print_favorite_outputdefinitions"),
                 border: false,
                 layout: "fit",
@@ -107,7 +107,7 @@ pimcore.bundle.web2print.favoriteOutputDefinitionsTable = Class.create({
             items: [
                 {
                     tooltip: t("keyvalue_detailed_configuration"),
-                    iconCls: "bundle_outputdataconfig_icon bundle_outputdataconfig_icon_overlay",
+                    iconCls: "bundle_outputdataconfig_icon",
                     handler: function (grid, rowIndex) {
 
                         var data = grid.getStore().getAt(rowIndex);

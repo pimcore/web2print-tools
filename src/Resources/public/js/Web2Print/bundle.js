@@ -35,7 +35,7 @@ pimcore.bundle.web2print = Class.create(pimcore.plugin.admin, {
             var menu = pimcore.globalmanager.get("layout_toolbar").settingsMenu;
             menu.add({
                 text: t("web2print_favorite_outputdefinitions"),
-                iconCls: "bundle_outputdataconfig_icon bundle_outputdataconfig_icon_overlay",
+                iconCls: "bundle_outputdataconfig_nav_icon",
                 handler: function () {
                     try {
                         pimcore.globalmanager.get("web2print.favorite_outputdefinitions").activate();

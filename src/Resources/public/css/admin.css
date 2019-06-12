@@ -15,14 +15,13 @@
 .bundle_outputdataconfig_icon {
     background: url("/bundles/pimcoreadmin/img/flat-color-icons/grid.svg") center center no-repeat !important;
 }
-.bundle_outputdataconfig_icon_overlay:before {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    bottom: 0px;
-    right: 0px;
-    content: "";
-    background: url(/bundles/pimcoreadmin/img/flat-color-icons/go.svg) center center no-repeat !important;
+
+.bundle_outputdataconfig_nav_icon {
+    background: url("/bundles/pimcoreadmin/img/flat-color-icons/grid.svg") center center no-repeat;
+}
+
+.pimcore_version_6 .bundle_outputdataconfig_nav_icon {
+    background: url("/bundles/pimcoreadmin/img/flat-white-icons/grid.svg") center center no-repeat;
 }
 
 #pimcore_menu_web2print {

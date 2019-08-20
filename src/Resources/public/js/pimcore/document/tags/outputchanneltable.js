@@ -467,8 +467,8 @@ pimcore.document.tags.outputchanneltable = Class.create(pimcore.document.tag, {
 
     getCurrentClassId: function() {
         var classStore = pimcore.globalmanager.get("object_types_store");
-        var index = classStore.find("text",this.selectedClass);
-        if(index && classStore.getAt(index)) {
+        var index = classStore.find("text", this.selectedClass);
+        if(typeof index !== 'undefined'  && classStore.getAt(index)) {
             return classStore.getAt(index).id;
         }
     },

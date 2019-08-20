@@ -65,7 +65,7 @@ pimcore.document.tags.metaentry.table = Class.create(pimcore.document.tags.metae
             columnLines: true,
             columns: [
                 {header: t("web2print_outputchanneltable_value"), sortable: false, dataIndex: 'value', editor: new Ext.form.TextField({}), flex: 320},
-                {header: t("web2print_outputchanneltable_span"), sortable: false, dataIndex: 'span', editor: new Ext.form.NumberField({}), width: 80},
+                {header: t("web2print_outputchanneltable_span"), sortable: false, dataIndex: 'span', editor: new Ext.form.NumberField({}), width: 180},
                 {
                     xtype: 'actioncolumn',
                     width: 40,
@@ -97,7 +97,7 @@ pimcore.document.tags.metaentry.table = Class.create(pimcore.document.tags.metae
         });
 
         this.metaEntryWindow = new Ext.Window({
-            width: 550,
+            width: 650,
             height: 300,
             modal: true,
             title: t('web2print_outputchanneltable_metaentry'),

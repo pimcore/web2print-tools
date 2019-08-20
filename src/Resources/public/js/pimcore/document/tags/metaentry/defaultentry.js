@@ -33,9 +33,9 @@ pimcore.document.tags.metaentry.defaultentry = Class.create(pimcore.document.tag
             height: 50,
             value: record.data.config ? record.data.config.value : ''
         });
-        var spanCheck = new Ext.form.Checkbox({
+        var spanCheck = new Ext.form.field.Checkbox({
             name: "span",
-            fieldLabel: t('web2print_outputchanneltable_span'),
+            boxLabel: t('web2print_outputchanneltable_span'),
             checked: record.data.config ? record.data.config.span : ''
         });
 
@@ -43,7 +43,6 @@ pimcore.document.tags.metaentry.defaultentry = Class.create(pimcore.document.tag
         var configPanel = new Ext.form.FormPanel({
             layout: "form",
             bodyStyle: "padding: 10px;",
-            labelWidth: 170,
             items: [nameText, valueText, spanCheck],
             buttons: [{
                 text: t("apply"),
@@ -56,7 +55,7 @@ pimcore.document.tags.metaentry.defaultentry = Class.create(pimcore.document.tag
 
         this.metaEntryWindow = new Ext.Window({
             width: 450,
-            height: 250,
+            height: 350,
             modal: true,
             title: t('web2print_outputchanneltable_metaentry'),
             layout: "fit",

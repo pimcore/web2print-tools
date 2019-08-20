@@ -538,11 +538,19 @@ pimcore.document.tags.outputchanneltable = Class.create(pimcore.document.tag, {
 
                 item.parentMenu.destroy();
 
-                var subtype = data.data.subtype;
-                if (data.data.type == "object" && data.data.subtype != "folder") {
-                    subtype = "object";
+                if(data.data.type == 'meta') {
+
+                    this.openMetaInfoDialog(data);
+
+                } else if(data.data.type == "object" ) {
+
+                    var subtype = data.data.subtype;
+                    if (data.data.type == "object" && data.data.subtype != "folder") {
+                        subtype = "object";
+                    }
+                    pimcore.helpers.openElement(data.data.id, data.data.type, subtype);
                 }
-                pimcore.helpers.openElement(data.data.id, data.data.type, subtype);
+
             }.bind(this, data)
         }));
 

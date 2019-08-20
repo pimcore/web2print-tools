@@ -13,11 +13,11 @@
  */
 
 
-namespace Web2PrintToolsBundle\Document\Tag;
+namespace Web2PrintToolsBundle\Model\Document\Tag;
 
 use OutputDataConfigToolkitBundle\OutputDefinition;
 use \Pimcore\Model\Document;
-use Web2PrintToolsBundle\Document\Tag\Outputchanneltable\MetaEntry;
+use Web2PrintToolsBundle\Model\Document\Tag\Outputchanneltable\MetaEntry;
 
 class Outputchanneltable extends Document\Tag implements \Iterator {
 
@@ -132,7 +132,7 @@ class Outputchanneltable extends Document\Tag implements \Iterator {
                     $subtype = str_replace("Web2PrintToolsBundle\\Model\\Document\\Tag\\Outputchanneltable\\MetaEntry\\", "", get_class($element));
 
                     //old namespace for compatibility
-                    $subtype = str_replace("Pimcore\\Model\\Document\\Tag\\Outputchanneltable\\MetaEntry\\", "", get_class($element));
+                    $subtype = str_replace("Pimcore\\Model\\Document\\Tag\\Outputchanneltable\\MetaEntry\\", "", $subtype);
 
                     $return[] = array("a" . $index, $element->getName(), "meta", strtolower($subtype), $element->getConfig());
                 }

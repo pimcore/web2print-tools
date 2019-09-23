@@ -16,10 +16,18 @@
 namespace Web2PrintToolsBundle;
 
 use Pimcore\Extension\Bundle\AbstractPimcoreBundle;
+use Pimcore\Extension\Bundle\Traits\PackageVersionTrait;
 use Web2PrintToolsBundle\Tools\Installer;
 
 class Web2PrintToolsBundle extends AbstractPimcoreBundle
 {
+    use PackageVersionTrait;
+
+    protected function getComposerPackageName()
+    {
+        return 'pimcore/web2print-tools-bundle';
+    }
+    
     /**
      * @inheritDoc
      */

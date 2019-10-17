@@ -7,7 +7,7 @@
   },
   "require": {
     "pimcore/pimcore": ">=5.4 <6.3",
-    "pimcore/output-data-config-toolkit-bundle": "~2"
+    "pimcore/output-data-config-toolkit-bundle": "~3"
   },
   "autoload": {
     "psr-4": {

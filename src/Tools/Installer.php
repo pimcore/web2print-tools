@@ -31,7 +31,7 @@ class Installer extends AbstractInstaller {
         $db->query("
             CREATE TABLE IF NOT EXISTS `" . Dao::TABLE_NAME . "` (
               `id` int(11) NOT NULL AUTO_INCREMENT,
-              `o_classId` int(11) NOT NULL,
+              `o_classId` varchar(50) NOT NULL,
               `description` varchar(255) COLLATE utf8_bin NOT NULL,
               `configuration` longtext CHARACTER SET latin1,
               PRIMARY KEY (`id`)

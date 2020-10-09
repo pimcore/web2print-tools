@@ -11,9 +11,8 @@
  * @license    http://www.pimcore.org/license     GPLv3 and PEL
  */
 
-
-pimcore.registerNS("pimcore.document.tags.outputchanneltable");
-pimcore.document.tags.outputchanneltable = Class.create(pimcore.document.tag, {
+pimcore.registerNS("pimcore.document.editables.outputchanneltable");
+pimcore.document.editables.outputchanneltable = Class.create(pimcore.document['editable'] ? pimcore.document['editable'] : pimcore.document['tag'], {
 
     selectedClass: null,
     selectedFavouriteOutputChannel: null,
@@ -662,3 +661,7 @@ pimcore.document.tags.outputchanneltable = Class.create(pimcore.document.tag, {
         return "outputchanneltable";
     }
 });
+
+// Pimcore 6 BC layer
+pimcore.registerNS("pimcore.document.tags.outputchanneltable");
+pimcore.document.tags.outputchanneltable = pimcore.document.editable.outputchanneltable;

@@ -13,7 +13,7 @@
  */
 
 
-namespace Web2PrintToolsBundle\Model\Document\Tag\Outputchanneltable;
+namespace Web2PrintToolsBundle\Model\Document\Editable\Outputchanneltable;
 
 class MetaEntry {
 

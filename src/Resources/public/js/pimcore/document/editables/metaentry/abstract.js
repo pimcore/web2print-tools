@@ -12,8 +12,8 @@
  */
 
 
-pimcore.registerNS("pimcore.document.tags.metaentry.abstract");
-pimcore.document.tags.metaentry.abstract = Class.create({
+pimcore.registerNS("pimcore.document.editables.metaentry.abstract");
+pimcore.document.editables.metaentry.abstract = Class.create({
 
     type: "meta",
     subtype: "abstract",

@@ -1,5 +1,5 @@
 pimcore:
     documents:
-        tags:
+        editables:
             map:
-                outputchanneltable: Web2PrintToolsBundle\Model\Document\Tag\Outputchanneltable
+                outputchanneltable: Web2PrintToolsBundle\Model\Document\Editable\Outputchanneltable

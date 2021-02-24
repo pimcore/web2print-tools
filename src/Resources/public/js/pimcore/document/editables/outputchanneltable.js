@@ -12,7 +12,7 @@
  */
 
 pimcore.registerNS("pimcore.document.editables.outputchanneltable");
-pimcore.document.editables.outputchanneltable = Class.create(pimcore.document['editable'] ? pimcore.document['editable'] : pimcore.document['tag'], {
+pimcore.document.editables.outputchanneltable = Class.create(pimcore.document.editable, {
 
     selectedClass: null,
     selectedFavouriteOutputChannel: null,
@@ -304,7 +304,7 @@ pimcore.document.editables.outputchanneltable = Class.create(pimcore.document['e
     getAddMetaInfoControl: function () {
 
         var typeMenu = [];
-        for(var type in window.parent.pimcore.document.tags.metaentry) {
+        for(var type in window.parent.pimcore.document.editables.metaentry) {
             if(type != "abstract") {
                 typeMenu.push({
                     text: type,
@@ -340,7 +340,7 @@ pimcore.document.editables.outputchanneltable = Class.create(pimcore.document['e
 
     addMetaInfo: function(type) {
 
-        var entry = new window.parent.pimcore.document.tags.metaentry[type]();
+        var entry = new window.parent.pimcore.document.editables.metaentry[type]();
         var initData = entry.getInitData("meta"  + (this.store.getCount() + 1));
         initData.newRecord = true;
 
@@ -351,7 +351,7 @@ pimcore.document.editables.outputchanneltable = Class.create(pimcore.document['e
     },
 
     openMetaInfoDialog: function(record) {
-        var entry = new window.parent.pimcore.document.tags.metaentry[record.data.subtype]();
+        var entry = new window.parent.pimcore.document.editables.metaentry[record.data.subtype]();
         entry.openDialog(record);
     },
 
@@ -661,7 +661,3 @@ pimcore.document.editables.outputchanneltable = Class.create(pimcore.document['e
         return "outputchanneltable";
     }
 });
-
-// Pimcore 6 BC layer
-pimcore.registerNS("pimcore.document.tags.outputchanneltable");
-pimcore.document.tags.outputchanneltable = pimcore.document.editable.outputchanneltable;

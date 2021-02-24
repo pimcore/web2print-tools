@@ -13,13 +13,15 @@
  */
 
 
-namespace Web2PrintToolsBundle\Model\Document\Tag;
+namespace Web2PrintToolsBundle\Model\Document\Editable;
 
 use OutputDataConfigToolkitBundle\OutputDefinition;
 use \Pimcore\Model\Document;
-use Web2PrintToolsBundle\Model\Document\Tag\Outputchanneltable\MetaEntry;
+use Pimcore\Model\Document\Editable\EditableInterface;
+use Pimcore\Model\Element\ElementDescriptor;
+use Web2PrintToolsBundle\Model\Document\Editable\Outputchanneltable\MetaEntry;
 
-class Outputchanneltable extends Document\Tag implements \Iterator {
+class Outputchanneltable extends Document\Editable implements \Iterator {
 
     /**
      * @var array
@@ -47,7 +49,7 @@ class Outputchanneltable extends Document\Tag implements \Iterator {
     public $outputChannel = "";
 
      /**
-     * @see \Pimcore\Model\Document\Tag\TagInterface::getType
+     * @see \Pimcore\Model\Document\Editable\EditableInterface::getType
      * @return string
      */
     public function getType() {
@@ -63,7 +65,7 @@ class Outputchanneltable extends Document\Tag implements \Iterator {
             foreach ($this->elementIds as $elementId) {
                 if($elementId["type"] == "meta") {
                     $subType = $elementId["subtype"] == 'default' ? 'defaultentry' : $elementId["subtype"];
-                    $classname = "\\Web2PrintToolsBundle\\Model\\Document\\Tag\\Outputchanneltable\\MetaEntry\\" . ucfirst($subType);
+                    $classname = "\\Web2PrintToolsBundle\\Model\\Document\\Editable\\Outputchanneltable\\MetaEntry\\" . ucfirst($subType);
 
                     if($subType && class_exists($classname)) {
                         $this->elements[] = new $classname($elementId["path"], $elementId['config']);
@@ -79,7 +81,7 @@ class Outputchanneltable extends Document\Tag implements \Iterator {
     }
 
     /**
-     * @see \Pimcore\Model\Document\Tag\TagInterface::getData
+     * @see EditableInterface::getData
      * @return \stdClass|void
      */
     public function getData() {
@@ -129,9 +131,10 @@ class Outputchanneltable extends Document\Tag implements \Iterator {
                 }
                 else if($element instanceof MetaEntry) {
 
-                    $subtype = str_replace("Web2PrintToolsBundle\\Model\\Document\\Tag\\Outputchanneltable\\MetaEntry\\", "", get_class($element));
+                    $subtype = str_replace("Web2PrintToolsBundle\\Model\\Document\\Editable\\Outputchanneltable\\MetaEntry\\", "", get_class($element));
 
                     //old namespace for compatibility
+                    $subtype = str_replace("Web2PrintToolsBundle\\Model\\Document\\Tag\\Outputchanneltable\\MetaEntry\\", "", $subtype);
                     $subtype = str_replace("Pimcore\\Model\\Document\\Tag\\Outputchanneltable\\MetaEntry\\", "", $subtype);
 
                     $return[] = array("a" . $index, $element->getName(), "meta", strtolower($subtype), $element->getConfig());
@@ -151,7 +154,7 @@ class Outputchanneltable extends Document\Tag implements \Iterator {
     }
 
     /**
-     * @see \Pimcore\Model\Document\Tag\TagInterface::frontend
+     * @see EditableInterface::frontend
      * @return void
      */
     public function frontend() {
@@ -164,6 +167,10 @@ class Outputchanneltable extends Document\Tag implements \Iterator {
                 if($element instanceof MetaEntry) {
                     $return .= $element->__toString() . "<br />";
                 } else {
+                    if($element instanceof ElementDescriptor) {
+                        $element = \Pimcore\Model\Element\Service::getElementById($element->getType(), $element->getId());
+                    }
+
                     $return .= \Pimcore\Model\Element\Service::getElementType($element) . ": " . $element->getFullPath() . "<br />";
                 }
             }
@@ -173,7 +180,7 @@ class Outputchanneltable extends Document\Tag implements \Iterator {
     }
 
     /**
-     * @see Document_Tag_Interface::setDataFromResource
+     * @see EditableInterface::setDataFromResource
      * @param mixed $data
      * @return void
      */
@@ -184,7 +191,7 @@ class Outputchanneltable extends Document\Tag implements \Iterator {
     }
 
     /**
-     * @see \Pimcore\Model\Document\Tag\TagInterface::setDataFromEditmode
+     * @see EditableInterface::setDataFromEditmode
      * @param mixed $data
      * @return void
      */

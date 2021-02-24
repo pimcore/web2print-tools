@@ -12,8 +12,8 @@
  */
 
 
-pimcore.registerNS("pimcore.document.tags.metaentry.defaultentry");
-pimcore.document.tags.metaentry.defaultentry = Class.create(pimcore.document.tags.metaentry.abstract, {
+pimcore.registerNS("pimcore.document.editables.metaentry.defaultentry");
+pimcore.document.editables.metaentry.defaultentry = Class.create(pimcore.document.editables.metaentry.abstract, {
 
     subtype: "defaultentry",
 

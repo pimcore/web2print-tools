@@ -27,7 +27,7 @@ class Web2PrintToolsBundle extends AbstractPimcoreBundle
     {
         return 'pimcore/web2print-tools-bundle';
     }
-    
+
     /**
      * @inheritDoc
      */
@@ -37,26 +37,26 @@ class Web2PrintToolsBundle extends AbstractPimcoreBundle
             '/bundles/web2printtools/css/admin.css'
         ];
     }
-    
+
     public function getJsPaths()
     {
         return [
             '/bundles/web2printtools/js/Web2Print/bundle.js',
             '/bundles/web2printtools/js/Web2Print/favoriteOutputDefinitions.js',
             '/bundles/web2printtools/js/Web2Print/saveAsFavouriteOutputDefinitionDialog.js',
-            '/bundles/web2printtools/js/pimcore/document/tags/metaentry/abstract.js',
-            '/bundles/web2printtools/js/pimcore/document/tags/metaentry/defaultentry.js',
-            '/bundles/web2printtools/js/pimcore/document/tags/metaentry/table.js'
+            '/bundles/web2printtools/js/pimcore/document/editables/metaentry/abstract.js',
+            '/bundles/web2printtools/js/pimcore/document/editables/metaentry/defaultentry.js',
+            '/bundles/web2printtools/js/pimcore/document/editables/metaentry/table.js'
         ];
     }
-    
+
     public function getEditmodeJsPaths()
     {
         return [
-            '/bundles/web2printtools/js/pimcore/document/tags/outputchanneltable.js',
+            '/bundles/web2printtools/js/pimcore/document/editables/outputchanneltable.js',
         ];
     }
-    
+
     public function getEditmodeCssPaths()
     {
         return [

@@ -70,7 +70,7 @@ Awesomizr.createTableOfContents({
 });
 
 ```
-See example: [toc.js](https://github.com/pimcore/web2print-tools/blob/master/Resources/public/examples/toc.js)
+See example: [toc.js](https://github.com/pimcore/web2print-tools/blob/master/src/Resources/public/examples/toc.js)
 See full documentation and examples: [pdfreactor-manual](http://www.pdfreactor.com/product/doc/manual.pdf)
 
 

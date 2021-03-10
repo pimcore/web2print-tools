@@ -7,3 +7,10 @@ services:
 
     Web2PrintToolsBundle\Twig\OutputChannelExtension:
         tags: ['twig.extension']
+
+
+    Web2PrintToolsBundle\Tools\Installer:
+        public: true
+        arguments:
+            # fetch the bundle via expression language
+            $bundle: "@=service('kernel').getBundle('Web2PrintToolsBundle')"

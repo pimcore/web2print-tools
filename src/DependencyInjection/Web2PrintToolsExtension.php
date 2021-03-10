@@ -18,10 +18,23 @@ namespace Web2PrintToolsBundle\DependencyInjection;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
+use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-class Web2PrintToolsExtension extends Extension
+class Web2PrintToolsExtension extends Extension implements PrependExtensionInterface
 {
+    public function prepend(ContainerBuilder $container)
+    {
+        if ($container->hasExtension('doctrine_migrations')) {
+            $loader = new YamlFileLoader(
+                $container,
+                new FileLocator(__DIR__ . '/../Resources/config')
+            );
+
+            $loader->load('doctrine_migrations.yml');
+        }
+    }
+
     /**
      * @inheritdoc
      */

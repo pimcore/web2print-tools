@@ -15,7 +15,7 @@
 
 namespace Web2PrintToolsBundle\FavoriteOutputDefinition;
 
-class Dao extends \Pimcore\Model\Listing\Dao\AbstractDao {
+class Dao extends \Pimcore\Model\Dao\AbstractDao {
 
     const TABLE_NAME = "bundle_web2print_favorite_outputdefinitions";
 

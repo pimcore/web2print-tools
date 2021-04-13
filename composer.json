@@ -6,7 +6,7 @@
     "sort-packages": true
   },
   "require": {
-    "pimcore/pimcore": "^6.8 || ^10.0",
+    "pimcore/pimcore": "^6.9 || ^10.0",
     "pimcore/output-data-config-toolkit-bundle": "^4.0"
   },
   "autoload": {
@@ -19,9 +19,6 @@
       "bundles": [
         "Web2PrintToolsBundle\\Web2PrintToolsBundle"
       ]
-    },
-    "branch-alias": {
-      "dev-master": "4.0-dev"
     }
   }
 }

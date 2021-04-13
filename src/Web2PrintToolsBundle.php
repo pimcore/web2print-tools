@@ -64,12 +64,8 @@ class Web2PrintToolsBundle extends AbstractPimcoreBundle
         ];
     }
 
-    /**
-     * @return Installer
-     */
     public function getInstaller()
     {
-        return new Installer();
+        return $this->container->get(Installer::class);
     }
-
 }

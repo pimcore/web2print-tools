@@ -18,9 +18,10 @@ namespace Web2PrintToolsBundle\Tools;
 use Pimcore\Config;
 use Pimcore\Extension\Bundle\Installer\AbstractInstaller;
 use Pimcore\Extension\Bundle\Installer\Exception\InstallationException;
+use Pimcore\Extension\Bundle\Installer\SettingsStoreAwareInstaller;
 use Web2PrintToolsBundle\FavoriteOutputDefinition\Dao;
 
-class Installer extends AbstractInstaller {
+class Installer extends SettingsStoreAwareInstaller {
 
 
     public function install()
@@ -37,6 +38,9 @@ class Installer extends AbstractInstaller {
               PRIMARY KEY (`id`)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
         ");
+
+        parent::install();
+
         if($this->isInstalled()){
             return true;
         } else {
@@ -50,32 +54,12 @@ class Installer extends AbstractInstaller {
         return true;
     }
 
-    public function isInstalled()
-    {
-        $result = null;
-        try{
-            if(Config::getSystemConfig()) {
-                $result = \Pimcore\Db::get()->fetchAll("SHOW TABLES LIKE '" . Dao::TABLE_NAME . "';");
-            }
-        } catch(\Exception $e){}
-        return !empty($result);
-
-    }
-
-    public function canBeInstalled()
-    {
-        return !$this->isInstalled();
-    }
-
-    public function canBeUninstalled()
-    {
-        return true;
-    }
-
     public function uninstall()
     {
         $db = \Pimcore\Db::get();
         $db->query("DROP TABLE IF EXISTS `" . Dao::TABLE_NAME . "`");
+
+        parent::uninstall();
 
         if(self::isInstalled()){
             throw new InstallationException("Could not be uninstalled.");

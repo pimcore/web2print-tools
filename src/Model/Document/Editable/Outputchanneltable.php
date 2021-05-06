@@ -1,78 +1,78 @@
 <?php
+
 /**
  * Pimcore
  *
  * This source file is available under two different licenses:
  * - GNU General Public License version 3 (GPLv3)
- * - Pimcore Enterprise License (PEL)
+ * - Pimcore Commercial License (PCL)
  * Full copyright and license information is available in
  * LICENSE.md which is distributed with this source code.
  *
- * @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
- * @license    http://www.pimcore.org/license     GPLv3 and PEL
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
-
 
 namespace Web2PrintToolsBundle\Model\Document\Editable;
 
 use OutputDataConfigToolkitBundle\OutputDefinition;
-use \Pimcore\Model\Document;
+use Pimcore\Model\Document;
 use Pimcore\Model\Document\Editable\EditableInterface;
 use Pimcore\Model\Element\ElementDescriptor;
 use Web2PrintToolsBundle\Model\Document\Editable\Outputchanneltable\MetaEntry;
 
-class Outputchanneltable extends Document\Editable implements \Iterator {
+class Outputchanneltable extends Document\Editable implements \Iterator
+{
+    /**
+     * @var array
+     */
+    public $elements = [];
 
     /**
      * @var array
      */
-    public $elements = array();
-
-    /**
-     * @var array
-     */
-    public $elementIds = array();
+    public $elementIds = [];
 
     /**
      * @var string
      */
-    public $selectedClass = "";
+    public $selectedClass = '';
 
     /**
      * @var string
      */
-    public $selectedFavouriteOutputChannel = "";
+    public $selectedFavouriteOutputChannel = '';
 
     /**
      * @var string
      */
-    public $outputChannel = "";
+    public $outputChannel = '';
 
-     /**
+    /**
      * @see \Pimcore\Model\Document\Editable\EditableInterface::getType
+     *
      * @return string
      */
-    public function getType() {
-        return "outputchanneltable";
+    public function getType()
+    {
+        return 'outputchanneltable';
     }
 
-    /*
-     *
-     */
-    public function setElements() {
-        if(empty($this->elements)) {
-            $this->elements = array();
+    public function setElements()
+    {
+        if (empty($this->elements)) {
+            $this->elements = [];
             foreach ($this->elementIds as $elementId) {
-                if($elementId["type"] == "meta") {
-                    $subType = $elementId["subtype"] == 'default' ? 'defaultentry' : $elementId["subtype"];
-                    $classname = "\\Web2PrintToolsBundle\\Model\\Document\\Editable\\Outputchanneltable\\MetaEntry\\" . ucfirst($subType);
+                if ($elementId['type'] == 'meta') {
+                    $subType = $elementId['subtype'] == 'default' ? 'defaultentry' : $elementId['subtype'];
+                    $classname = '\\Web2PrintToolsBundle\\Model\\Document\\Editable\\Outputchanneltable\\MetaEntry\\' . ucfirst($subType);
 
-                    if($subType && class_exists($classname)) {
-                        $this->elements[] = new $classname($elementId["path"], $elementId['config']);
+                    if ($subType && class_exists($classname)) {
+                        $this->elements[] = new $classname($elementId['path'], $elementId['config']);
                     }
                 } else {
-                    $el = \Pimcore\Model\Element\Service::getElementById($elementId["type"], $elementId["id"]);
-                    if($el instanceof \Pimcore\Model\Element\ElementInterface) {
+                    $el = \Pimcore\Model\Element\Service::getElementById($elementId['type'], $elementId['id']);
+                    if ($el instanceof \Pimcore\Model\Element\ElementInterface) {
                         $this->elements[] = $el;
                     }
                 }
@@ -82,17 +82,19 @@ class Outputchanneltable extends Document\Editable implements \Iterator {
 
     /**
      * @see EditableInterface::getData
+     *
      * @return \stdClass|void
      */
-    public function getData() {
+    public function getData()
+    {
         $this->setElements();
 
-        $data = array(
+        $data = [
             'selectedClass' => $this->selectedClass,
-            'elements' =>  $this->elements,
+            'elements' => $this->elements,
             'outputChannel' => $this->outputChannel,
             'selectedFavouriteOutputChannel' => $this->selectedFavouriteOutputChannel
-        );
+        ];
 
         return $data;
     }
@@ -100,78 +102,77 @@ class Outputchanneltable extends Document\Editable implements \Iterator {
     /**
      * @return \stdClass|void
      */
-    public function getDataForResource() {
-
-        $data = array(
+    public function getDataForResource()
+    {
+        $data = [
             'selectedClass' => $this->selectedClass,
-            'elements' =>  $this->elementIds,
+            'elements' => $this->elementIds,
             'outputChannel' => $this->outputChannel,
             'selectedFavouriteOutputChannel' => $this->selectedFavouriteOutputChannel
-        );
+        ];
 
         return $data;
     }
 
     /**
      * Converts the data so it's suitable for the editmode
+     *
      * @return mixed
      */
-    public function getDataEditmode() {
-
+    public function getDataEditmode()
+    {
         $this->setElements();
-        $return = array();
+        $return = [];
 
         if (is_array($this->elements) && count($this->elements) > 0) {
             foreach ($this->elements as $index => $element) {
                 if ($element instanceof \Pimcore\Model\DataObject\Concrete) {
-                    $return[] = array($element->getId(), $element->getFullPath(), "object", $element->getClassName());
-                }
-                else if ($element instanceof \Pimcore\Model\DataObject\AbstractObject) {
-                    $return[] = array($element->getId(), $element->getFullPath(), "object", "folder");
-                }
-                else if($element instanceof MetaEntry) {
-
-                    $subtype = str_replace("Web2PrintToolsBundle\\Model\\Document\\Editable\\Outputchanneltable\\MetaEntry\\", "", get_class($element));
+                    $return[] = [$element->getId(), $element->getFullPath(), 'object', $element->getClassName()];
+                } elseif ($element instanceof \Pimcore\Model\DataObject\AbstractObject) {
+                    $return[] = [$element->getId(), $element->getFullPath(), 'object', 'folder'];
+                } elseif ($element instanceof MetaEntry) {
+                    $subtype = str_replace('Web2PrintToolsBundle\\Model\\Document\\Editable\\Outputchanneltable\\MetaEntry\\', '', get_class($element));
 
                     //old namespace for compatibility
-                    $subtype = str_replace("Web2PrintToolsBundle\\Model\\Document\\Tag\\Outputchanneltable\\MetaEntry\\", "", $subtype);
-                    $subtype = str_replace("Pimcore\\Model\\Document\\Tag\\Outputchanneltable\\MetaEntry\\", "", $subtype);
+                    $subtype = str_replace('Web2PrintToolsBundle\\Model\\Document\\Tag\\Outputchanneltable\\MetaEntry\\', '', $subtype);
+                    $subtype = str_replace('Pimcore\\Model\\Document\\Tag\\Outputchanneltable\\MetaEntry\\', '', $subtype);
 
-                    $return[] = array("a" . $index, $element->getName(), "meta", strtolower($subtype), $element->getConfig());
+                    $return[] = ['a' . $index, $element->getName(), 'meta', strtolower($subtype), $element->getConfig()];
                 }
             }
         }
 
-        $data = array(
+        $data = [
             'selectedClass' => $this->selectedClass,
             'selectedFavouriteOutputChannel' => $this->selectedFavouriteOutputChannel,
-            'elements' =>  $return,
+            'elements' => $return,
             'outputChannel' => $this->outputChannel,
             'documentId' => $this->getDocumentId()
-        );
+        ];
 
         return $data;
     }
 
     /**
      * @see EditableInterface::frontend
+     *
      * @return void
      */
-    public function frontend() {
-
+    public function frontend()
+    {
         $this->setElements();
-        $return = "";
+        $return = '';
 
         if (is_array($this->elements) && count($this->elements) > 0) {
             foreach ($this->elements as $element) {
-                if($element instanceof MetaEntry) {
-                    $return .= $element->__toString() . "<br />";
+                if ($element instanceof MetaEntry) {
+                    $return .= $element->__toString() . '<br />';
                 } else {
-                    if($element instanceof ElementDescriptor) {
+                    if ($element instanceof ElementDescriptor) {
                         $element = \Pimcore\Model\Element\Service::getElementById($element->getType(), $element->getId());
                     }
 
-                    $return .= \Pimcore\Model\Element\Service::getElementType($element) . ": " . $element->getFullPath() . "<br />";
+                    $return .= \Pimcore\Model\Element\Service::getElementType($element) . ': ' . $element->getFullPath() . '<br />';
                 }
             }
         }
@@ -181,23 +182,28 @@ class Outputchanneltable extends Document\Editable implements \Iterator {
 
     /**
      * @see EditableInterface::setDataFromResource
+     *
      * @param mixed $data
+     *
      * @return void
      */
-    public function setDataFromResource($data) {
-        if($data = \Pimcore\Tool\Serialize::unserialize($data)) {
+    public function setDataFromResource($data)
+    {
+        if ($data = \Pimcore\Tool\Serialize::unserialize($data)) {
             $this->setDataFromEditmode($data);
         }
     }
 
     /**
      * @see EditableInterface::setDataFromEditmode
+     *
      * @param mixed $data
+     *
      * @return void
      */
-    public function setDataFromEditmode($data) {
-
-        if(is_array($data['elements'])) {
+    public function setDataFromEditmode($data)
+    {
+        if (is_array($data['elements'])) {
             $this->elementIds = $data['elements'];
         }
         $this->outputChannel = $data['outputChannel'];
@@ -208,37 +214,40 @@ class Outputchanneltable extends Document\Editable implements \Iterator {
     /**
      * @return \Pimcore\Model\Element\ElementInterface[]
      */
-    public function getElements() {
+    public function getElements()
+    {
         $this->setElements();
+
         return $this->elements;
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
-    public function isEmpty() {
+    public function isEmpty()
+    {
         $this->setElements();
+
         return count($this->elements) > 0 ? false : true;
     }
 
     /**
      * @return array
      */
-    public function resolveDependencies() {
-
+    public function resolveDependencies()
+    {
         $this->setElements();
-        $dependencies = array();
+        $dependencies = [];
 
         if (is_array($this->elements) && count($this->elements) > 0) {
             foreach ($this->elements as $element) {
                 if ($element instanceof \Pimcore\Model\DataObject\AbstractObject) {
+                    $key = 'object_' . $element->getO_Id();
 
-                    $key = "object_" . $element->getO_Id();
-
-                    $dependencies[$key] = array(
-                        "id" => $element->getO_Id(),
-                        "type" => "object"
-                    );
+                    $dependencies[$key] = [
+                        'id' => $element->getO_Id(),
+                        'type' => 'object'
+                    ];
                 }
             }
         }
@@ -246,20 +255,20 @@ class Outputchanneltable extends Document\Editable implements \Iterator {
         return $dependencies;
     }
 
-    public function getFromWebserviceImport($wsElement, $document = null, $params = [], $idMapper = null) {
+    public function getFromWebserviceImport($wsElement, $document = null, $params = [], $idMapper = null)
+    {
         // currently unsupported
-        return array();
+        return [];
     }
-
 
     /**
      * @return array
      */
-    public function __sleep() {
-
-        $finalVars = array();
+    public function __sleep()
+    {
+        $finalVars = [];
         $parentVars = parent::__sleep();
-        $blockedVars = array("elements");
+        $blockedVars = ['elements'];
         foreach ($parentVars as $key) {
             if (!in_array($key, $blockedVars)) {
                 $finalVars[] = $key;
@@ -269,43 +278,49 @@ class Outputchanneltable extends Document\Editable implements \Iterator {
         return $finalVars;
     }
 
-    /**
-     *
-     */
-    public function load () {
+    public function load()
+    {
         $this->setElements();
     }
 
     /**
      * Methods for Iterator
      */
-
-    public function rewind() {
+    public function rewind()
+    {
         $this->setElements();
         reset($this->elements);
     }
 
-    public function current() {
+    public function current()
+    {
         $this->setElements();
         $var = current($this->elements);
+
         return $var;
     }
 
-    public function key() {
+    public function key()
+    {
         $this->setElements();
         $var = key($this->elements);
+
         return $var;
     }
 
-    public function next() {
+    public function next()
+    {
         $this->setElements();
         $var = next($this->elements);
+
         return $var;
     }
 
-    public function valid() {
+    public function valid()
+    {
         $this->setElements();
         $var = $this->current() !== false;
+
         return $var;
     }
 
@@ -320,6 +335,7 @@ class Outputchanneltable extends Document\Editable implements \Iterator {
         $config->setChannel($tmpClass->channel);
         $config->setO_ClassId($tmpClass->o_classId);
         $config->setConfiguration(json_encode($tmpClass->configuration));
+
         return $config;
     }
 
@@ -330,5 +346,4 @@ class Outputchanneltable extends Document\Editable implements \Iterator {
     {
         return $this->selectedClass;
     }
-
 }

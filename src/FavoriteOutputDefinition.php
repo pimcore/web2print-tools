@@ -1,86 +1,99 @@
 <?php
+
 /**
  * Pimcore
  *
  * This source file is available under two different licenses:
  * - GNU General Public License version 3 (GPLv3)
- * - Pimcore Enterprise License (PEL)
+ * - Pimcore Commercial License (PCL)
  * Full copyright and license information is available in
  * LICENSE.md which is distributed with this source code.
  *
- * @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
- * @license    http://www.pimcore.org/license     GPLv3 and PEL
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
-
 
 namespace Web2PrintToolsBundle;
 
 use Pimcore\Logger;
 
-class FavoriteOutputDefinition extends \Pimcore\Model\AbstractModel {
+class FavoriteOutputDefinition extends \Pimcore\Model\AbstractModel
+{
     public $id;
     public $o_classId;
     public $description;
     public $configuration;
 
-
-    public static function getById($id) {
+    public static function getById($id)
+    {
         try {
             $config = new self();
             $config->getDao()->getById($id);
+
             return $config;
-        } catch(\Exception $ex) {
+        } catch (\Exception $ex) {
             Logger::debug($ex->getMessage());
+
             return null;
-        }        
+        }
     }
 
     /**
      * @param array $values
+     *
      * @return FavoriteOutputDefinition
      */
-    public static function create($values = array()) {
+    public static function create($values = [])
+    {
         $config = new self();
         $config->setValues($values);
+
         return $config;
     }
 
     /**
      * @return void
      */
-    public function save() {
+    public function save()
+    {
         $this->getDao()->save();
     }
 
     /**
      * @return void
      */
-    public function delete() {
+    public function delete()
+    {
         $this->getDao()->delete();
     }
 
-
-    public function setConfiguration($configuration) {
+    public function setConfiguration($configuration)
+    {
         $this->configuration = $configuration;
     }
 
-    public function getConfiguration() {
+    public function getConfiguration()
+    {
         return $this->configuration;
     }
 
-    public function setO_ClassId($o_classId) {
+    public function setO_ClassId($o_classId)
+    {
         $this->o_classId = $o_classId;
     }
 
-    public function getO_ClassId() {
+    public function getO_ClassId()
+    {
         return $this->o_classId;
     }
 
-    public function setId($id) {
+    public function setId($id)
+    {
         $this->id = $id;
     }
 
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
@@ -93,5 +106,4 @@ class FavoriteOutputDefinition extends \Pimcore\Model\AbstractModel {
     {
         return $this->description;
     }
-
 }

@@ -1,25 +1,24 @@
 <?php
+
 /**
  * Pimcore
  *
  * This source file is available under two different licenses:
  * - GNU General Public License version 3 (GPLv3)
- * - Pimcore Enterprise License (PEL)
+ * - Pimcore Commercial License (PCL)
  * Full copyright and license information is available in
  * LICENSE.md which is distributed with this source code.
  *
- * @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
- * @license    http://www.pimcore.org/license     GPLv3 and PEL
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
-
 
 namespace Web2PrintToolsBundle\Model\Document\Editable\Outputchanneltable\MetaEntry;
 
-
 use Web2PrintToolsBundle\Model\Document\Editable\Outputchanneltable\MetaEntry;
 
-class Defaultentry extends MetaEntry {
-
+class Defaultentry extends MetaEntry
+{
     /**
      * @var string
      */
@@ -30,7 +29,8 @@ class Defaultentry extends MetaEntry {
      */
     public $span;
 
-    public function setConfig($config) {
+    public function setConfig($config)
+    {
         parent::setConfig($config);
         $this->setValue($config['value']);
         $this->setSpan($config['span']);
@@ -47,7 +47,7 @@ class Defaultentry extends MetaEntry {
     }
 
     /**
-     * @param boolean $span
+     * @param bool $span
      */
     public function setSpan($span)
     {
@@ -55,17 +55,15 @@ class Defaultentry extends MetaEntry {
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function getSpan()
     {
         return $this->span;
     }
 
-
     public function __toString()
     {
-        return $this->getName() . ": " . $this->getValue();
+        return $this->getName() . ': ' . $this->getValue();
     }
-
 }

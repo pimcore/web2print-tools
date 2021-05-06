@@ -1,31 +1,32 @@
 <?php
+
 /**
  * Pimcore
  *
  * This source file is available under two different licenses:
  * - GNU General Public License version 3 (GPLv3)
- * - Pimcore Enterprise License (PEL)
+ * - Pimcore Commercial License (PCL)
  * Full copyright and license information is available in
  * LICENSE.md which is distributed with this source code.
  *
- * @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
- * @license    http://www.pimcore.org/license     GPLv3 and PEL
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
-
 
 namespace Web2PrintToolsBundle\FavoriteOutputDefinition\Listing;
 
 use Web2PrintToolsBundle\FavoriteOutputDefinition;
 
-class Dao extends \Pimcore\Model\Listing\Dao\AbstractDao {
-
+class Dao extends \Pimcore\Model\Listing\Dao\AbstractDao
+{
     /**
      * @return array
      */
-    public function load() {
-        $configs = array();
+    public function load()
+    {
+        $configs = [];
 
-        $unitIds = $this->db->fetchAll("SELECT id FROM " . \Web2PrintToolsBundle\FavoriteOutputDefinition\Dao::TABLE_NAME .
+        $unitIds = $this->db->fetchAll('SELECT id FROM ' . \Web2PrintToolsBundle\FavoriteOutputDefinition\Dao::TABLE_NAME .
                                                  $this->getCondition() . $this->getOrder() . $this->getOffsetLimit());
 
         foreach ($unitIds as $row) {
@@ -37,9 +38,10 @@ class Dao extends \Pimcore\Model\Listing\Dao\AbstractDao {
         return $configs;
     }
 
-    public function getTotalCount() {
-        $amount = $this->db->fetchRow("SELECT COUNT(*) as amount FROM `" . \Web2PrintToolsBundle\FavoriteOutputDefinition\Dao::TABLE_NAME . "`" . $this->getCondition());
-        return $amount["amount"];
-    }
+    public function getTotalCount()
+    {
+        $amount = $this->db->fetchRow('SELECT COUNT(*) as amount FROM `' . \Web2PrintToolsBundle\FavoriteOutputDefinition\Dao::TABLE_NAME . '`' . $this->getCondition());
 
+        return $amount['amount'];
+    }
 }

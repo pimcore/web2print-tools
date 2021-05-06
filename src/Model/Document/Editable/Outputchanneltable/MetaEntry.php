@@ -1,22 +1,22 @@
 <?php
+
 /**
  * Pimcore
  *
  * This source file is available under two different licenses:
  * - GNU General Public License version 3 (GPLv3)
- * - Pimcore Enterprise License (PEL)
+ * - Pimcore Commercial License (PCL)
  * Full copyright and license information is available in
  * LICENSE.md which is distributed with this source code.
  *
- * @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
- * @license    http://www.pimcore.org/license     GPLv3 and PEL
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
-
 
 namespace Web2PrintToolsBundle\Model\Document\Editable\Outputchanneltable;
 
-class MetaEntry {
-
+class MetaEntry
+{
     /**
      * @var string
      */
@@ -27,7 +27,8 @@ class MetaEntry {
      */
     public $config;
 
-    public function __construct($name = null, $config = array()) {
+    public function __construct($name = null, $config = [])
+    {
         $this->setName($name);
         $this->setConfig($config);
     }
@@ -68,5 +69,4 @@ class MetaEntry {
     {
         return $this->getName();
     }
-
 }

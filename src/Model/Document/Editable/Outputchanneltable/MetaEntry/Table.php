@@ -1,26 +1,24 @@
 <?php
+
 /**
  * Pimcore
  *
  * This source file is available under two different licenses:
  * - GNU General Public License version 3 (GPLv3)
- * - Pimcore Enterprise License (PEL)
+ * - Pimcore Commercial License (PCL)
  * Full copyright and license information is available in
  * LICENSE.md which is distributed with this source code.
  *
- * @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
- * @license    http://www.pimcore.org/license     GPLv3 and PEL
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
-
 
 namespace Web2PrintToolsBundle\Model\Document\Editable\Outputchanneltable\MetaEntry;
 
-
-
 use Web2PrintToolsBundle\Model\Document\Editable\Outputchanneltable\MetaEntry;
 
-class Table extends MetaEntry {
-
+class Table extends MetaEntry
+{
     /**
      * @var string
      */
@@ -36,7 +34,8 @@ class Table extends MetaEntry {
      */
     public $span;
 
-    public function setConfig($config) {
+    public function setConfig($config)
+    {
         parent::setConfig($config);
         $this->setValues($config['values']);
     }
@@ -46,14 +45,13 @@ class Table extends MetaEntry {
         $this->values = $values;
 
         $index = 0;
-        $this->spanCleanedValues = array();
-        if($values) {
-            foreach($values as $v) {
-                for($i = 0; $i < $v['span']; $i++) {
+        $this->spanCleanedValues = [];
+        if ($values) {
+            foreach ($values as $v) {
+                for ($i = 0; $i < $v['span']; $i++) {
                     $this->spanCleanedValues[] = $v['value'];
                 }
             }
-
         }
     }
 
@@ -68,22 +66,28 @@ class Table extends MetaEntry {
     }
 
     private $nextValue = -1;
-    public function resetNextValue() {
+
+    public function resetNextValue()
+    {
         $this->nextValue = -1;
     }
 
-    public function getNextSpanCleanedValue() {
+    public function getNextSpanCleanedValue()
+    {
         $this->nextValue++;
+
         return $this->spanCleanedValues[$this->nextValue];
     }
 
-    public function getNextValue() {
+    public function getNextValue()
+    {
         $this->nextValue++;
+
         return $this->values[$this->nextValue];
     }
 
     /**
-     * @param boolean $span
+     * @param bool $span
      */
     public function setSpan($span)
     {
@@ -91,17 +95,15 @@ class Table extends MetaEntry {
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function getSpan()
     {
         return $this->span;
     }
 
-
     public function __toString()
     {
-        return $this->getName() . ": " . $this->getValue(0);
+        return $this->getName() . ': ' . $this->getValue(0);
     }
-
 }

@@ -19,9 +19,6 @@
       "bundles": [
         "Web2PrintToolsBundle\\Web2PrintToolsBundle"
       ]
-    },
-      "branch-alias": {
-          "dev-master": "4.0-dev"
-      }
+    }
   }
 }

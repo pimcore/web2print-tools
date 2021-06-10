@@ -9,6 +9,11 @@ services:
         tags: ['twig.extension']
 
 
+    Web2PrintToolsBundle\Controller\:
+        resource: '../../Controller'
+        tags: ['controller.service_arguments']
+
+
     Web2PrintToolsBundle\Tools\Installer:
         public: true
         arguments:

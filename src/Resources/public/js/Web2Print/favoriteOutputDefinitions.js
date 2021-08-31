@@ -79,6 +79,7 @@ pimcore.bundle.web2print.favoriteOutputDefinitionsTable = Class.create({
             flex: 200,
             sortable: true,
             dataIndex: 'description',
+            renderer: Ext.util.Format.htmlEncode,
             filter: 'string',
             editor: new Ext.form.TextField({})
         });

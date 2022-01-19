@@ -107,11 +107,16 @@ pimcore.bundle.web2print.favoriteOutputDefinitionsTable = Class.create({
             width: 30,
             items: [
                 {
-                    tooltip: t("keyvalue_detailed_configuration"),
+                    tooltip: t("web2print_web2print_favourite_output_channel_configuration"),
                     iconCls: "bundle_outputdataconfig_icon",
                     handler: function (grid, rowIndex) {
 
                         var data = grid.getStore().getAt(rowIndex);
+
+                        if (empty(data.data.o_classId)) {
+                            Ext.MessageBox.alert(t("error"), t("web2print_web2print_favourite_output_channel_select_class"));
+                            return;
+                        }
 
                         var channel = {
                             id: "SOME-ID",

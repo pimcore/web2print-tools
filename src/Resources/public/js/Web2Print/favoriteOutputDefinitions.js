@@ -120,7 +120,7 @@ pimcore.bundle.web2print.favoriteOutputDefinitionsTable = Class.create({
 
                         var channel = {
                             id: "SOME-ID",
-                            channel: data.data.description,
+                            channel: Ext.util.Format.htmlEncode(data.data.description),
                             o_classId: data.data.o_classId,
                             configuration: Ext.decode(data.data.configuration)
                         };

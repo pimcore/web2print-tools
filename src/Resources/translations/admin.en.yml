@@ -20,3 +20,5 @@ web2print_outputchanneltable_save_favorite_name_exists:  Name exists already
 web2print_outputchanneltable_overwrite_existing:  Do you want to overwrite the existing Output Channel Config?
 web2print_web2print_mainmenu:  Web2Print-Tools
 web2print_web2print_favourite_output_channels:  Web2Print Favorite Outputchannels
+web2print_web2print_favourite_output_channel_configuration: Output Channel Configuration
+web2print_web2print_favourite_output_channel_select_class: Select Class for this configuration

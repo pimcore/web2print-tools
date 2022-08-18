@@ -12,41 +12,24 @@
  */
 
 
-pimcore.registerNS("pimcore.bundle.web2print");
-
-pimcore.bundle.web2print = Class.create(pimcore.plugin.admin, {
-    getClassName: function () {
-        return "pimcore.bundle.web2print";
-    },
-
-    initialize: function () {
-        pimcore.plugin.broker.registerPlugin(this);
-    },
-
-    uninstall: function () {
-    },
-
-    pimcoreReady: function (params, broker) {
-        var user = pimcore.globalmanager.get("user");
-        var perspectiveCfg = pimcore.globalmanager.get("perspective");
+document.addEventListener(pimcore.events.pimcoreReady, (e) => {
+    const user = pimcore.globalmanager.get("user");
+    const perspectiveCfg = pimcore.globalmanager.get("perspective");
 
 
-        if (user.isAllowed("web2print_web2print_favourite_output_channels") && perspectiveCfg.inToolbar("settings.favorite_outputdefinitions")) {
-            var menu = pimcore.globalmanager.get("layout_toolbar").settingsMenu;
-            menu.add({
-                text: t("web2print_favorite_outputdefinitions"),
-                iconCls: "bundle_outputdataconfig_nav_icon",
-                handler: function () {
-                    try {
-                        pimcore.globalmanager.get("web2print.favorite_outputdefinitions").activate();
-                    }
-                    catch (e) {
-                        pimcore.globalmanager.add("web2print.favorite_outputdefinitions", new pimcore.bundle.web2print.favoriteOutputDefinitionsTable());
-                    }
+    if (user.isAllowed("web2print_web2print_favourite_output_channels") && perspectiveCfg.inToolbar("settings.favorite_outputdefinitions")) {
+        let menu = pimcore.globalmanager.get("layout_toolbar").settingsMenu;
+        menu.add({
+            text: t("web2print_favorite_outputdefinitions"),
+            iconCls: "bundle_outputdataconfig_nav_icon",
+            handler: function () {
+                try {
+                    pimcore.globalmanager.get("web2print.favorite_outputdefinitions").activate();
                 }
-            });
-        }
+                catch (e) {
+                    pimcore.globalmanager.add("web2print.favorite_outputdefinitions", new pimcore.bundle.web2print.favoriteOutputDefinitionsTable());
+                }
+            }
+        });
     }
 });
-
-new pimcore.bundle.web2print();

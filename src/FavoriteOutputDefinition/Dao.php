@@ -15,6 +15,8 @@
 
 namespace Web2PrintToolsBundle\FavoriteOutputDefinition;
 
+use Pimcore\Db\Helper;
+
 class Dao extends \Pimcore\Model\Dao\AbstractDao
 {
     const TABLE_NAME = 'bundle_web2print_favorite_outputdefinitions';
@@ -41,7 +43,7 @@ class Dao extends \Pimcore\Model\Dao\AbstractDao
      */
     public function getById($id)
     {
-        $outputDefinitionRaw = $this->db->fetchRow('SELECT * FROM ' . self::TABLE_NAME . ' WHERE id=?', [$id]);
+        $outputDefinitionRaw = $this->db->fetchAssociative('SELECT * FROM ' . self::TABLE_NAME . ' WHERE id=?', [$id]);
         if (empty($outputDefinitionRaw)) {
             throw new \Exception('OutputDefinition-Id ' . $id . ' not found.');
         }
@@ -90,7 +92,7 @@ class Dao extends \Pimcore\Model\Dao\AbstractDao
                 $data[$key] = $value;
             }
         }
-        $this->db->updateWhere(self::TABLE_NAME, $data, 'id=' . $this->db->quote($this->model->getId()));
+        Helper::insertOrUpdate($this->db, self::TABLE_NAME, $data);
     }
 
     /**
@@ -100,6 +102,6 @@ class Dao extends \Pimcore\Model\Dao\AbstractDao
      */
     public function delete()
     {
-        $this->db->deleteWhere(self::TABLE_NAME, 'id=' . $this->db->quote($this->model->getId()));
+        $this->db->executeStatement('DELETE FROM ' . $this->db->quoteIdentifier(self::TABLE_NAME) . ' where id = ?', [$this->model->getId()]);
     }
 }

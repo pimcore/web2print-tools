@@ -26,7 +26,7 @@ class Dao extends \Pimcore\Model\Listing\Dao\AbstractDao
     {
         $configs = [];
 
-        $unitIds = $this->db->fetchAll('SELECT id FROM ' . \Web2PrintToolsBundle\FavoriteOutputDefinition\Dao::TABLE_NAME .
+        $unitIds = $this->db->fetchAllAssociative('SELECT id FROM ' . \Web2PrintToolsBundle\FavoriteOutputDefinition\Dao::TABLE_NAME .
                                                  $this->getCondition() . $this->getOrder() . $this->getOffsetLimit());
 
         foreach ($unitIds as $row) {
@@ -40,7 +40,7 @@ class Dao extends \Pimcore\Model\Listing\Dao\AbstractDao
 
     public function getTotalCount()
     {
-        $amount = $this->db->fetchRow('SELECT COUNT(*) as amount FROM `' . \Web2PrintToolsBundle\FavoriteOutputDefinition\Dao::TABLE_NAME . '`' . $this->getCondition());
+        $amount = $this->db->fetchAssociative('SELECT COUNT(*) as amount FROM `' . \Web2PrintToolsBundle\FavoriteOutputDefinition\Dao::TABLE_NAME . '`' . $this->getCondition());
 
         return $amount['amount'];
     }

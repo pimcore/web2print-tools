@@ -24,9 +24,9 @@ class Installer extends SettingsStoreAwareInstaller
     public function install()
     {
         $db = \Pimcore\Db::get();
-        $db->query("INSERT IGNORE INTO users_permission_definitions(`key`) VALUES ('web2print_web2print_favourite_output_channels')");
+        $db->executeQuery("INSERT IGNORE INTO users_permission_definitions(`key`) VALUES ('web2print_web2print_favourite_output_channels')");
 
-        $db->query('
+        $db->executeQuery('
             CREATE TABLE IF NOT EXISTS `' . Dao::TABLE_NAME . '` (
               `id` int(11) NOT NULL AUTO_INCREMENT,
               `o_classId` varchar(50) NOT NULL,
@@ -53,7 +53,7 @@ class Installer extends SettingsStoreAwareInstaller
     public function uninstall()
     {
         $db = \Pimcore\Db::get();
-        $db->query('DROP TABLE IF EXISTS `' . Dao::TABLE_NAME . '`');
+        $db->executeQuery('DROP TABLE IF EXISTS `' . Dao::TABLE_NAME . '`');
 
         parent::uninstall();
 

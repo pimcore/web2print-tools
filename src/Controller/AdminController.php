@@ -36,7 +36,7 @@ class AdminController extends \Pimcore\Bundle\AdminBundle\Controller\AdminContro
             if ($request->get('xaction') == 'destroy') {
                 $id = json_decode($request->get('data'), true);
                 $idValue = $id['id'] ?? '';
-                if(!empty($idValue)) {
+                if (!empty($idValue)) {
                     $def = FavoriteOutputDefinition::getById($idValue);
                     if (!empty($def)) {
                         $def->delete();
@@ -44,7 +44,7 @@ class AdminController extends \Pimcore\Bundle\AdminBundle\Controller\AdminContro
                         return $this->adminJson(['data' => [], 'success' => true]);
                     }
                 }
-                if(!$def) {
+                if (!$def) {
                     throw new \Exception('OutputDefinition with id ' . $idValue . ' not found.');
                 }
             } elseif ($request->get('xaction') == 'update') {

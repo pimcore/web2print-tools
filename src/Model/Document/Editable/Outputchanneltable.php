@@ -83,41 +83,37 @@ class Outputchanneltable extends Document\Editable implements \Iterator
     /**
      * @see EditableInterface::getData
      *
-     * @return \stdClass|void
+     * @return array
      */
     public function getData()
     {
         $this->setElements();
 
-        $data = [
+        return [
             'selectedClass' => $this->selectedClass,
             'elements' => $this->elements,
             'outputChannel' => $this->outputChannel,
             'selectedFavouriteOutputChannel' => $this->selectedFavouriteOutputChannel
         ];
-
-        return $data;
     }
 
     /**
-     * @return \stdClass|void
+     * @return array
      */
     public function getDataForResource()
     {
-        $data = [
+        return [
             'selectedClass' => $this->selectedClass,
             'elements' => $this->elementIds,
             'outputChannel' => $this->outputChannel,
             'selectedFavouriteOutputChannel' => $this->selectedFavouriteOutputChannel
         ];
-
-        return $data;
     }
 
     /**
      * Converts the data so it's suitable for the editmode
      *
-     * @return mixed
+     * @return array
      */
     public function getDataEditmode()
     {
@@ -142,21 +138,18 @@ class Outputchanneltable extends Document\Editable implements \Iterator
             }
         }
 
-        $data = [
+        return [
             'selectedClass' => $this->selectedClass,
             'selectedFavouriteOutputChannel' => $this->selectedFavouriteOutputChannel,
             'elements' => $return,
             'outputChannel' => $this->outputChannel,
             'documentId' => $this->getDocumentId()
         ];
-
-        return $data;
     }
 
     /**
-     * @see EditableInterface::frontend
      *
-     * @return void
+     * @return string
      */
     public function frontend()
     {
@@ -228,7 +221,7 @@ class Outputchanneltable extends Document\Editable implements \Iterator
     {
         $this->setElements();
 
-        return count($this->elements) > 0 ? false : true;
+        return count($this->elements) === 0;
     }
 
     /**
@@ -295,33 +288,25 @@ class Outputchanneltable extends Document\Editable implements \Iterator
     public function current()
     {
         $this->setElements();
-        $var = current($this->elements);
-
-        return $var;
+        return current($this->elements);
     }
 
     public function key()
     {
         $this->setElements();
-        $var = key($this->elements);
-
-        return $var;
+        return key($this->elements);
     }
 
     public function next()
     {
         $this->setElements();
-        $var = next($this->elements);
-
-        return $var;
+        return next($this->elements);
     }
 
     public function valid()
     {
         $this->setElements();
-        $var = $this->current() !== false;
-
-        return $var;
+        return $this->current() !== false;
     }
 
     /**

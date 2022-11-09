@@ -34,6 +34,16 @@ class Table extends MetaEntry
      */
     public $span;
 
+    /**
+     * @var int
+     */
+    private $nextValue = -1;
+
+
+    /**
+     * @param array $config
+     * @return void
+     */
     public function setConfig($config)
     {
         parent::setConfig($config);
@@ -44,7 +54,6 @@ class Table extends MetaEntry
     {
         $this->values = $values;
 
-        $index = 0;
         $this->spanCleanedValues = [];
         if ($values) {
             foreach ($values as $v) {
@@ -65,7 +74,6 @@ class Table extends MetaEntry
         return $this->spanCleanedValues[$index];
     }
 
-    private $nextValue = -1;
 
     public function resetNextValue()
     {

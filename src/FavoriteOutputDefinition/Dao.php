@@ -60,7 +60,7 @@ class Dao extends \Pimcore\Model\Dao\AbstractDao
         $this->db->insert(self::TABLE_NAME, []);
         $this->model->setId($this->db->lastInsertId());
 
-        $this->save();
+        return $this->save();
     }
 
     /**
@@ -81,6 +81,8 @@ class Dao extends \Pimcore\Model\Dao\AbstractDao
     public function update()
     {
         $class = get_object_vars($this->model);
+
+        $data = [];
 
         foreach ($class as $key => $value) {
             if (in_array($key, $this->validColumns)) {

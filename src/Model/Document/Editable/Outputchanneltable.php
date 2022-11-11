@@ -288,24 +288,28 @@ class Outputchanneltable extends Document\Editable implements \Iterator
     public function current()
     {
         $this->setElements();
+
         return current($this->elements);
     }
 
     public function key()
     {
         $this->setElements();
+
         return key($this->elements);
     }
 
     public function next()
     {
         $this->setElements();
+
         return next($this->elements);
     }
 
     public function valid()
     {
         $this->setElements();
+
         return $this->current() !== false;
     }
 

@@ -31,6 +31,7 @@ class Defaultentry extends MetaEntry
 
     /**
      * @param array $config
+     *
      * @return void
      */
     public function setConfig($config)
@@ -42,6 +43,7 @@ class Defaultentry extends MetaEntry
 
     /**
      * @param string $value
+     *
      * @return void
      */
     public function setValue($value)

@@ -39,9 +39,9 @@ class Table extends MetaEntry
      */
     private $nextValue = -1;
 
-
     /**
      * @param array $config
+     *
      * @return void
      */
     public function setConfig($config)
@@ -73,7 +73,6 @@ class Table extends MetaEntry
     {
         return $this->spanCleanedValues[$index];
     }
-
 
     public function resetNextValue()
     {

@@ -29,6 +29,10 @@ class Defaultentry extends MetaEntry
      */
     public $span;
 
+    /**
+     * @param array $config
+     * @return void
+     */
     public function setConfig($config)
     {
         parent::setConfig($config);
@@ -36,11 +40,18 @@ class Defaultentry extends MetaEntry
         $this->setSpan($config['span']);
     }
 
+    /**
+     * @param string $value
+     * @return void
+     */
     public function setValue($value)
     {
         $this->value = $value;
     }
 
+    /**
+     * @return string
+     */
     public function getValue()
     {
         return $this->value;

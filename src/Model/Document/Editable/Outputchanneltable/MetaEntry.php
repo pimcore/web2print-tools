@@ -27,6 +27,10 @@ class MetaEntry
      */
     public $config;
 
+    /**
+     * @param string|null $name
+     * @param array|null $config
+     */
     public function __construct($name = null, $config = [])
     {
         $this->setName($name);
@@ -42,7 +46,7 @@ class MetaEntry
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getName()
     {

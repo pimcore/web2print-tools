@@ -185,6 +185,7 @@ class Outputchanneltable extends Document\Editable implements \Iterator
         if ($data = \Pimcore\Tool\Serialize::unserialize($data)) {
             $this->setDataFromEditmode($data);
         }
+
         return $this;
     }
 
@@ -203,6 +204,7 @@ class Outputchanneltable extends Document\Editable implements \Iterator
         $this->outputChannel = $data['outputChannel'];
         $this->selectedClass = $data['selectedClass'];
         $this->selectedFavouriteOutputChannel = $data['selectedFavouriteOutputChannel'];
+
         return $this;
     }
 

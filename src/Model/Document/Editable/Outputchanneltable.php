@@ -178,13 +178,14 @@ class Outputchanneltable extends Document\Editable implements \Iterator
      *
      * @param mixed $data
      *
-     * @return void
+     * @return $this
      */
     public function setDataFromResource($data)
     {
         if ($data = \Pimcore\Tool\Serialize::unserialize($data)) {
             $this->setDataFromEditmode($data);
         }
+        return $this;
     }
 
     /**
@@ -192,7 +193,7 @@ class Outputchanneltable extends Document\Editable implements \Iterator
      *
      * @param mixed $data
      *
-     * @return void
+     * @return $this
      */
     public function setDataFromEditmode($data)
     {
@@ -202,6 +203,7 @@ class Outputchanneltable extends Document\Editable implements \Iterator
         $this->outputChannel = $data['outputChannel'];
         $this->selectedClass = $data['selectedClass'];
         $this->selectedFavouriteOutputChannel = $data['selectedFavouriteOutputChannel'];
+        return $this;
     }
 
     /**
@@ -276,37 +278,34 @@ class Outputchanneltable extends Document\Editable implements \Iterator
         $this->setElements();
     }
 
-    /**
-     * Methods for Iterator
-     */
-    public function rewind()
+    public function rewind(): void
     {
         $this->setElements();
         reset($this->elements);
     }
 
-    public function current()
+    public function current(): mixed
     {
         $this->setElements();
 
         return current($this->elements);
     }
 
-    public function key()
+    public function key(): mixed
     {
         $this->setElements();
 
         return key($this->elements);
     }
 
-    public function next()
+    public function next(): void
     {
         $this->setElements();
 
-        return next($this->elements);
+        next($this->elements);
     }
 
-    public function valid()
+    public function valid(): bool
     {
         $this->setElements();
 

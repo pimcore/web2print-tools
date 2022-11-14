@@ -1,0 +1,30 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Call to an undefined method Pimcore\\\\Model\\\\Dao\\\\AbstractDao\\:\\:getById\\(\\)\\.$#"
+			count: 1
+			path: src/FavoriteOutputDefinition.php
+		-
+			message: "#^Call to an undefined method Pimcore\\\\Model\\\\Dao\\\\AbstractDao\\:\\:save\\(\\)\\.$#"
+			count: 1
+			path: src/FavoriteOutputDefinition.php
+		-
+			message: "#^Call to an undefined method Pimcore\\\\Model\\\\Dao\\\\AbstractDao\\:\\:delete\\(\\)\\.$#"
+			count: 1
+			path: src/FavoriteOutputDefinition.php
+		-
+			message: "#^Call to an undefined method Pimcore\\\\Model\\\\AbstractModel\\:\\:getId\\(\\)\\.$#"
+			count: 2
+			path: src/FavoriteOutputDefinition/Dao.php
+		-
+			message: "#^Call to an undefined method Pimcore\\\\Model\\\\AbstractModel\\:\\:setId\\(\\)\\.$#"
+			count: 1
+			path: src/FavoriteOutputDefinition/Dao.php
+		-
+			message: "#^Call to an undefined method Pimcore\\\\Model\\\\DataObject\\\\Listing\\:\\:setOutputDefinitions\\(\\)\\.$#"
+			count: 1
+			path: src/FavoriteOutputDefinition/Listing/Dao.php
+		-
+			message: "#^Call to an undefined method Pimcore\\\\Model\\\\DataObject\\\\AbstractObject\\:\\:getO_Id\\(\\)\\.$#"
+			count: 2
+			path: src/Model/Document/Editable/Outputchanneltable.php

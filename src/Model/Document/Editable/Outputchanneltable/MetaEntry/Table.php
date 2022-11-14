@@ -54,7 +54,7 @@ class Table extends MetaEntry
     {
         $this->values = $values;
 
-        $this->spanCleanedValues = [];
+        $this->spanCleanedValues = '';
         if ($values) {
             foreach ($values as $v) {
                 for ($i = 0; $i < $v['span']; $i++) {

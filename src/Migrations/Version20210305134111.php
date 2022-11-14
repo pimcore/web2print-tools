@@ -17,14 +17,14 @@ namespace Web2PrintToolsBundle\Migrations;
 
 use Doctrine\DBAL\Schema\Schema;
 use Pimcore\Config;
-use Pimcore\Migrations\Migration\AbstractPimcoreMigration;
 use Pimcore\Model\Tool\SettingsStore;
+use Doctrine\Migrations\AbstractMigration;
 use Web2PrintToolsBundle\FavoriteOutputDefinition\Dao;
 
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-class Version20210305134111 extends AbstractPimcoreMigration
+class Version20210305134111 extends AbstractMigration
 {
     public function doesSqlMigrations(): bool
     {
@@ -34,12 +34,12 @@ class Version20210305134111 extends AbstractPimcoreMigration
     /**
      * @param Schema $schema
      */
-    public function up(Schema $schema)
+    public function up(Schema $schema): void
     {
         $result = null;
         try {
-            if (Config::getSystemConfig()) {
-                $result = \Pimcore\Db::get()->fetchAll("SHOW TABLES LIKE '" . Dao::TABLE_NAME . "';");
+            if (Config::getSystemConfiguration()) {
+                $result = \Pimcore\Db::get()->fetchAssociative("SHOW TABLES LIKE '" . Dao::TABLE_NAME . "';");
             }
         } catch (\Exception $e) {
         }
@@ -51,7 +51,7 @@ class Version20210305134111 extends AbstractPimcoreMigration
     /**
      * @param Schema $schema
      */
-    public function down(Schema $schema)
+    public function down(Schema $schema): void
     {
     }
 }

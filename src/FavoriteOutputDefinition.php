@@ -24,6 +24,10 @@ class FavoriteOutputDefinition extends \Pimcore\Model\AbstractModel
     public $description;
     public $configuration;
 
+    /**
+     * @param $id
+     * @return FavoriteOutputDefinition|null
+     */
     public static function getById($id)
     {
         try {

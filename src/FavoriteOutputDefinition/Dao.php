@@ -97,6 +97,7 @@ class Dao extends \Pimcore\Model\Dao\AbstractDao
                 $data[$key] = $value;
             }
         }
+
         return Helper::insertOrUpdate($this->db, self::TABLE_NAME, $data);
     }
 

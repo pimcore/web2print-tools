@@ -45,7 +45,6 @@ class AdminController extends \Pimcore\Bundle\AdminBundle\Controller\AdminContro
                     }
                 }
                 throw new \Exception('OutputDefinition with id ' . $idValue . ' not found.');
-
             } elseif ($request->get('xaction') == 'update') {
                 $data = json_decode($request->get('data'), true);
                 $def = FavoriteOutputDefinition::getById($data['id']);

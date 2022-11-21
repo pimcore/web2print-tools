@@ -17,6 +17,9 @@ namespace Web2PrintToolsBundle\FavoriteOutputDefinition;
 
 use Pimcore\Db\Helper;
 
+/**
+ * @method delete()
+ */
 class Dao extends \Pimcore\Model\Dao\AbstractDao
 {
     const TABLE_NAME = 'bundle_web2print_favorite_outputdefinitions';
@@ -64,21 +67,19 @@ class Dao extends \Pimcore\Model\Dao\AbstractDao
     }
 
     /**
-     * @return bool|void
+     * @return bool
      */
     public function save()
     {
         if ($this->model->getId()) {
-            $this->update();
-
-            return;
+            return $this->update();
         }
 
         return $this->create();
     }
 
     /**
-     * @return void
+     * @return bool
      */
     public function update()
     {
@@ -96,7 +97,7 @@ class Dao extends \Pimcore\Model\Dao\AbstractDao
                 $data[$key] = $value;
             }
         }
-        Helper::insertOrUpdate($this->db, self::TABLE_NAME, $data);
+        return Helper::insertOrUpdate($this->db, self::TABLE_NAME, $data);
     }
 
     /**

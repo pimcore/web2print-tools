@@ -16,9 +16,10 @@
 namespace Web2PrintToolsBundle\FavoriteOutputDefinition;
 
 use Pimcore\Db\Helper;
+use Web2PrintToolsBundle\FavoriteOutputDefinition;
 
 /**
- * @method delete()
+ * @property FavoriteOutputDefinition $model
  */
 class Dao extends \Pimcore\Model\Dao\AbstractDao
 {

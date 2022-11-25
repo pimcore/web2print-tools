@@ -57,7 +57,7 @@ class Dao extends \Pimcore\Model\Dao\AbstractDao
     /**
      * Create a new record for the object in database
      *
-     * @return bool
+     * @return void
      */
     public function create()
     {
@@ -68,7 +68,7 @@ class Dao extends \Pimcore\Model\Dao\AbstractDao
     }
 
     /**
-     * @return bool
+     * @return void
      */
     public function save()
     {
@@ -80,7 +80,7 @@ class Dao extends \Pimcore\Model\Dao\AbstractDao
     }
 
     /**
-     * @return bool
+     * @return void
      */
     public function update()
     {
@@ -99,7 +99,7 @@ class Dao extends \Pimcore\Model\Dao\AbstractDao
             }
         }
 
-        return Helper::insertOrUpdate($this->db, self::TABLE_NAME, $data);
+        Helper::insertOrUpdate($this->db, self::TABLE_NAME, $data);
     }
 
     /**

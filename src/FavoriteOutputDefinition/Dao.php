@@ -16,7 +16,11 @@
 namespace Web2PrintToolsBundle\FavoriteOutputDefinition;
 
 use Pimcore\Db\Helper;
+use Web2PrintToolsBundle\FavoriteOutputDefinition;
 
+/**
+ * @property FavoriteOutputDefinition $model
+ */
 class Dao extends \Pimcore\Model\Dao\AbstractDao
 {
     const TABLE_NAME = 'bundle_web2print_favorite_outputdefinitions';
@@ -64,7 +68,7 @@ class Dao extends \Pimcore\Model\Dao\AbstractDao
     }
 
     /**
-     * @return bool|void
+     * @return bool
      */
     public function save()
     {
@@ -76,7 +80,7 @@ class Dao extends \Pimcore\Model\Dao\AbstractDao
     }
 
     /**
-     * @return void
+     * @return bool
      */
     public function update()
     {

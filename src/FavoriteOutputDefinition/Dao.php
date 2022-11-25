@@ -64,7 +64,7 @@ class Dao extends \Pimcore\Model\Dao\AbstractDao
         $this->db->insert(self::TABLE_NAME, []);
         $this->model->setId($this->db->lastInsertId());
 
-        return $this->save();
+        $this->save();
     }
 
     /**
@@ -73,10 +73,11 @@ class Dao extends \Pimcore\Model\Dao\AbstractDao
     public function save()
     {
         if ($this->model->getId()) {
-            return $this->update();
+            $this->update();
+            return;
         }
 
-        return $this->create();
+        $this->create();
     }
 
     /**

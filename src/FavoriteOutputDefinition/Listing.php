@@ -15,6 +15,10 @@
 
 namespace Web2PrintToolsBundle\FavoriteOutputDefinition;
 
+/**
+ * @method self|null load()
+ * @method int getTotalCount()
+ */
 class Listing extends \Pimcore\Model\Listing\AbstractListing
 {
     /**
@@ -23,7 +27,9 @@ class Listing extends \Pimcore\Model\Listing\AbstractListing
     public $outputDefinitions;
 
     /**
-     * @var array
+     * @param string $key
+     *
+     * @return bool
      */
     public function isValidOrderKey($key)
     {
@@ -47,7 +53,7 @@ class Listing extends \Pimcore\Model\Listing\AbstractListing
     }
 
     /**
-     * @param array $units
+     * @param array $outputDefinitions
      *
      * @return void
      */

@@ -6,8 +6,12 @@
     "sort-packages": true
   },
   "require": {
+    "php": "^8.0",
     "pimcore/pimcore": "^10.5 || ^11@dev",
-    "pimcore/output-data-config-toolkit-bundle": "^5.0"
+    "pimcore/output-data-config-toolkit-bundle": "^5@dev"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^1.9"
   },
   "autoload": {
     "psr-4": {

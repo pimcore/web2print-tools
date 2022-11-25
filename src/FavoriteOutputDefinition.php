@@ -17,6 +17,9 @@ namespace Web2PrintToolsBundle;
 
 use Pimcore\Logger;
 
+/**
+ * @method \Web2PrintToolsBundle\FavoriteOutputDefinition\Dao getDao()
+ */
 class FavoriteOutputDefinition extends \Pimcore\Model\AbstractModel
 {
     public $id;
@@ -24,6 +27,11 @@ class FavoriteOutputDefinition extends \Pimcore\Model\AbstractModel
     public $description;
     public $configuration;
 
+    /**
+     * @param $id
+     *
+     * @return FavoriteOutputDefinition|null
+     */
     public static function getById($id)
     {
         try {

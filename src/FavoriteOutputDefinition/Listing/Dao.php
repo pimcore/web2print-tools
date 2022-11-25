@@ -17,6 +17,9 @@ namespace Web2PrintToolsBundle\FavoriteOutputDefinition\Listing;
 
 use Web2PrintToolsBundle\FavoriteOutputDefinition;
 
+/**
+ * @property FavoriteOutputDefinition\Listing $model
+ */
 class Dao extends \Pimcore\Model\Listing\Dao\AbstractDao
 {
     /**

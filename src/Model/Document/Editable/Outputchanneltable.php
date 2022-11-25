@@ -235,10 +235,10 @@ class Outputchanneltable extends Document\Editable implements \Iterator
         if (is_array($this->elements) && count($this->elements) > 0) {
             foreach ($this->elements as $element) {
                 if ($element instanceof \Pimcore\Model\DataObject\AbstractObject) {
-                    $key = 'object_' . $element->getO_Id();
+                    $key = 'object_' . $element->getId();
 
                     $dependencies[$key] = [
-                        'id' => $element->getO_Id(),
+                        'id' => $element->getId(),
                         'type' => 'object'
                     ];
                 }

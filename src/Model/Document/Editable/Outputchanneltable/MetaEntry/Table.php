@@ -25,7 +25,7 @@ class Table extends MetaEntry
     public $values;
 
     /**
-     * @var string
+     * @var array
      */
     public $spanCleanedValues;
 

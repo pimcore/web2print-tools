@@ -50,10 +50,8 @@ class Outputchanneltable extends Document\Editable implements \Iterator
 
     /**
      * @see \Pimcore\Model\Document\Editable\EditableInterface::getType
-     *
-     * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return 'outputchanneltable';
     }
@@ -82,10 +80,8 @@ class Outputchanneltable extends Document\Editable implements \Iterator
 
     /**
      * @see EditableInterface::getData
-     *
-     * @return array
      */
-    public function getData()
+    public function getData(): array
     {
         $this->setElements();
 
@@ -97,10 +93,7 @@ class Outputchanneltable extends Document\Editable implements \Iterator
         ];
     }
 
-    /**
-     * @return array
-     */
-    public function getDataForResource()
+    public function getDataForResource(): array
     {
         return [
             'selectedClass' => $this->selectedClass,
@@ -112,10 +105,8 @@ class Outputchanneltable extends Document\Editable implements \Iterator
 
     /**
      * Converts the data so it's suitable for the editmode
-     *
-     * @return array
      */
-    public function getDataEditmode()
+    public function getDataEditmode(): array
     {
         $this->setElements();
         $return = [];
@@ -147,11 +138,7 @@ class Outputchanneltable extends Document\Editable implements \Iterator
         ];
     }
 
-    /**
-     *
-     * @return string
-     */
-    public function frontend()
+    public function frontend(): string
     {
         $this->setElements();
         $return = '';
@@ -180,7 +167,7 @@ class Outputchanneltable extends Document\Editable implements \Iterator
      *
      * @return $this
      */
-    public function setDataFromResource($data)
+    public function setDataFromResource($data): static
     {
         if ($data = \Pimcore\Tool\Serialize::unserialize($data)) {
             $this->setDataFromEditmode($data);
@@ -196,7 +183,7 @@ class Outputchanneltable extends Document\Editable implements \Iterator
      *
      * @return $this
      */
-    public function setDataFromEditmode($data)
+    public function setDataFromEditmode($data): static
     {
         if (is_array($data['elements'])) {
             $this->elementIds = $data['elements'];
@@ -218,20 +205,14 @@ class Outputchanneltable extends Document\Editable implements \Iterator
         return $this->elements;
     }
 
-    /**
-     * @return bool
-     */
-    public function isEmpty()
+    public function isEmpty(): bool
     {
         $this->setElements();
 
         return count($this->elements) === 0;
     }
 
-    /**
-     * @return array
-     */
-    public function resolveDependencies()
+    public function resolveDependencies(): array
     {
         $this->setElements();
         $dependencies = [];

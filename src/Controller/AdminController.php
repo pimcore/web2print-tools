@@ -71,11 +71,11 @@ class AdminController extends \Pimcore\Bundle\AdminBundle\Controller\AdminContro
             if ($request->get('sort')) {
                 $sortConfig = json_decode($request->get('sort'), true);
                 $sortConfig = $sortConfig[0];
-                if ($sortConfig->property) {
-                    $list->setOrderKey($sortConfig->property);
+                if ($sortConfig['property']) {
+                    $list->setOrderKey($sortConfig['property']);
                 }
-                if ($sortConfig->direction) {
-                    $list->setOrder($sortConfig->direction);
+                if ($sortConfig['direction']) {
+                    $list->setOrder($sortConfig['direction']);
                 }
             }
 

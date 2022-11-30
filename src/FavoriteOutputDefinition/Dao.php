@@ -57,30 +57,30 @@ class Dao extends \Pimcore\Model\Dao\AbstractDao
     /**
      * Create a new record for the object in database
      *
-     * @return bool
+     * @return void
      */
     public function create()
     {
         $this->db->insert(self::TABLE_NAME, []);
         $this->model->setId($this->db->lastInsertId());
 
-        return $this->save();
+        $this->save();
     }
 
     /**
-     * @return bool
+     * @return void
      */
     public function save()
     {
         if ($this->model->getId()) {
-            return $this->update();
+            $this->update();
         }
 
-        return $this->create();
+        $this->create();
     }
 
     /**
-     * @return bool
+     * @return void
      */
     public function update()
     {

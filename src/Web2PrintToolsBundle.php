@@ -16,6 +16,7 @@
 namespace Web2PrintToolsBundle;
 
 use Pimcore\Extension\Bundle\AbstractPimcoreBundle;
+use Pimcore\Extension\Bundle\Installer\InstallerInterface;
 use Pimcore\Extension\Bundle\Traits\PackageVersionTrait;
 use Web2PrintToolsBundle\Tools\Installer;
 
@@ -31,14 +32,14 @@ class Web2PrintToolsBundle extends AbstractPimcoreBundle
     /**
      * @inheritDoc
      */
-    public function getCssPaths()
+    public function getCssPaths(): array
     {
         return [
             '/bundles/web2printtools/css/admin.css'
         ];
     }
 
-    public function getJsPaths()
+    public function getJsPaths(): array
     {
         return [
             '/bundles/web2printtools/js/Web2Print/bundle.js',
@@ -50,21 +51,21 @@ class Web2PrintToolsBundle extends AbstractPimcoreBundle
         ];
     }
 
-    public function getEditmodeJsPaths()
+    public function getEditmodeJsPaths(): array
     {
         return [
             '/bundles/web2printtools/js/pimcore/document/editables/outputchanneltable.js',
         ];
     }
 
-    public function getEditmodeCssPaths()
+    public function getEditmodeCssPaths(): array
     {
         return [
             '/bundles/web2printtools/css/admin.css'
         ];
     }
 
-    public function getInstaller()
+    public function getInstaller(): ?InstallerInterface
     {
         return $this->container->get(Installer::class);
     }

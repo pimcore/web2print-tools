@@ -22,10 +22,7 @@ use Web2PrintToolsBundle\FavoriteOutputDefinition;
  */
 class Dao extends \Pimcore\Model\Listing\Dao\AbstractDao
 {
-    /**
-     * @return array
-     */
-    public function load()
+    public function load(): array
     {
         $configs = [];
 
@@ -41,7 +38,7 @@ class Dao extends \Pimcore\Model\Listing\Dao\AbstractDao
         return $configs;
     }
 
-    public function getTotalCount()
+    public function getTotalCount(): int
     {
         $amount = $this->db->fetchAssociative('SELECT COUNT(*) as amount FROM `' . \Web2PrintToolsBundle\FavoriteOutputDefinition\Dao::TABLE_NAME . '`' . $this->getCondition());
 

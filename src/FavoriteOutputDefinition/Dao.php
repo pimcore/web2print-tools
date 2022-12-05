@@ -74,9 +74,10 @@ class Dao extends \Pimcore\Model\Dao\AbstractDao
     {
         if ($this->model->getId()) {
             $this->update();
+        } else {
+            $this->create();
         }
 
-        $this->create();
     }
 
     /**

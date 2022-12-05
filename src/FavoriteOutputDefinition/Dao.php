@@ -77,7 +77,6 @@ class Dao extends \Pimcore\Model\Dao\AbstractDao
         } else {
             $this->create();
         }
-
     }
 
     /**

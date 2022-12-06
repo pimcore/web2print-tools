@@ -99,7 +99,6 @@ class Dao extends \Pimcore\Model\Dao\AbstractDao
             }
         }
 
-        $data['id'] = $this->model->getId();
         Helper::insertOrUpdate($this->db, self::TABLE_NAME, $data);
     }
 

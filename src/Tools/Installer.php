@@ -29,8 +29,8 @@ class Installer extends SettingsStoreAwareInstaller
         $db->executeQuery('
             CREATE TABLE IF NOT EXISTS `' . Dao::TABLE_NAME . '` (
               `id` int(11) NOT NULL AUTO_INCREMENT,
-              `o_classId` varchar(50) NOT NULL,
-              `description` varchar(255) COLLATE utf8_bin NOT NULL,
+              `o_classId` varchar(50) NULL,
+              `description` varchar(255) COLLATE utf8_bin NULL,
               `configuration` longtext CHARACTER SET latin1,
               PRIMARY KEY (`id`)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;

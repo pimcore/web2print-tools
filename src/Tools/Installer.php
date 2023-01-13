@@ -21,7 +21,7 @@ use Web2PrintToolsBundle\FavoriteOutputDefinition\Dao;
 
 class Installer extends SettingsStoreAwareInstaller
 {
-    public function install()
+    public function install(): void
     {
         $db = \Pimcore\Db::get();
         $db->executeQuery("INSERT IGNORE INTO users_permission_definitions(`key`) VALUES ('web2print_web2print_favourite_output_channels')");
@@ -37,12 +37,6 @@ class Installer extends SettingsStoreAwareInstaller
         ');
 
         parent::install();
-
-        if ($this->isInstalled()) {
-            return true;
-        } else {
-            return false;
-        }
     }
 
     public function needsReloadAfterInstall(): bool
@@ -50,7 +44,7 @@ class Installer extends SettingsStoreAwareInstaller
         return true;
     }
 
-    public function uninstall()
+    public function uninstall(): void
     {
         $db = \Pimcore\Db::get();
         $db->executeQuery('DROP TABLE IF EXISTS `' . Dao::TABLE_NAME . '`');

@@ -34,13 +34,13 @@ class Version20220914092411 extends BundleAwareMigration
     {
         $db = Db::get();
         $this->addSql('alter table ' . $db->quoteIdentifier(DAO::TABLE_NAME) . ' modify o_classid varchar(50) null');
-        $this->addSql('alter table ' . $db->quoteIdentifier(DAO::TABLE_NAME) . ' modify description varchar(255) null');
+        $this->addSql('alter table ' . $db->quoteIdentifier(DAO::TABLE_NAME) . ' modify ' . $db->quoteIdentifier('description') . ' varchar(255) null');
     }
 
     public function down(Schema $schema): void
     {
         $db = Db::get();
         $this->addSql('alter table ' . $db->quoteIdentifier(DAO::TABLE_NAME) . ' modify o_classid varchar(50) not null');
-        $this->addSql('alter table ' . $db->quoteIdentifier(DAO::TABLE_NAME) . ' modify description varchar(255) not null;');
+        $this->addSql('alter table ' . $db->quoteIdentifier(DAO::TABLE_NAME) . ' modify ' . $db->quoteIdentifier('description') . ' varchar(255) not null;');
     }
 }

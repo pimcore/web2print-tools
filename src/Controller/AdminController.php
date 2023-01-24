@@ -15,10 +15,10 @@
 
 namespace Web2PrintToolsBundle\Controller;
 
+use Pimcore\Model\DataObject;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Web2PrintToolsBundle\FavoriteOutputDefinition;
-use Pimcore\Model\DataObject;
 
 /**
  * Class AdminController

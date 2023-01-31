@@ -64,7 +64,7 @@ pimcore.bundle.web2print.favoriteOutputDefinitionsTable = Class.create({
             [
                 {name: 'id'},
                 {name: 'description'},
-                {name: 'o_classId'},
+                {name: 'classId'},
                 {name: 'configuration'}
             ],
             itemsPerPage
@@ -84,7 +84,7 @@ pimcore.bundle.web2print.favoriteOutputDefinitionsTable = Class.create({
             editor: new Ext.form.TextField({})
         });
         gridColumns.push({
-            header: t("class"), width: 200, sortable: true, dataIndex: 'o_classId',
+            header: t("class"), width: 200, sortable: true, dataIndex: 'classId',
             editor: new Ext.form.ComboBox({
                 triggerAction: 'all',
                 editable: false,
@@ -113,7 +113,7 @@ pimcore.bundle.web2print.favoriteOutputDefinitionsTable = Class.create({
 
                         var data = grid.getStore().getAt(rowIndex);
 
-                        if (empty(data.data.o_classId)) {
+                        if (empty(data.data.classId)) {
                             Ext.MessageBox.alert(t("error"), t("web2print_web2print_favourite_output_channel_select_class"));
                             return;
                         }
@@ -121,7 +121,7 @@ pimcore.bundle.web2print.favoriteOutputDefinitionsTable = Class.create({
                         var channel = {
                             id: "SOME-ID",
                             channel: Ext.util.Format.htmlEncode(data.data.description),
-                            o_classId: data.data.o_classId,
+                            classId: data.data.classId,
                             configuration: Ext.decode(data.data.configuration)
                         };
 
@@ -196,7 +196,7 @@ pimcore.bundle.web2print.favoriteOutputDefinitionsTable = Class.create({
             url: '/admin/outputdataconfig/admin/get-attribute-labels',
             method: 'POST',
             params: {
-                classId: data.data.o_classId,
+                classId: data.data.classId,
                 configuration: Ext.encode(configData.config)
             },
             success: function (response) {

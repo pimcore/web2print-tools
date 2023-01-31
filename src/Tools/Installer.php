@@ -18,6 +18,7 @@ namespace Web2PrintToolsBundle\Tools;
 use Pimcore\Extension\Bundle\Installer\Exception\InstallationException;
 use Pimcore\Extension\Bundle\Installer\SettingsStoreAwareInstaller;
 use Web2PrintToolsBundle\FavoriteOutputDefinition\Dao;
+use Web2PrintToolsBundle\Migrations\Version20230124103907;
 
 class Installer extends SettingsStoreAwareInstaller
 {
@@ -29,7 +30,7 @@ class Installer extends SettingsStoreAwareInstaller
         $db->executeQuery('
             CREATE TABLE IF NOT EXISTS `' . Dao::TABLE_NAME . '` (
               `id` int(11) NOT NULL AUTO_INCREMENT,
-              `o_classId` varchar(50) NULL,
+              `classId` varchar(50) NULL,
               `description` varchar(255) COLLATE utf8_bin NULL,
               `configuration` longtext CHARACTER SET latin1,
               PRIMARY KEY (`id`)
@@ -54,5 +55,10 @@ class Installer extends SettingsStoreAwareInstaller
         if (self::isInstalled()) {
             throw new InstallationException('Could not be uninstalled.');
         }
+    }
+
+    public function getLastMigrationVersionClassName(): ?string
+    {
+        return Version20230124103907::class;
     }
 }

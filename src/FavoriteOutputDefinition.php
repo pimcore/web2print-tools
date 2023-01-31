@@ -23,7 +23,7 @@ use Pimcore\Logger;
 class FavoriteOutputDefinition extends \Pimcore\Model\AbstractModel
 {
     public $id;
-    public $o_classId;
+    public $classId;
     public $description;
     public $configuration;
 
@@ -85,14 +85,14 @@ class FavoriteOutputDefinition extends \Pimcore\Model\AbstractModel
         return $this->configuration;
     }
 
-    public function setO_ClassId($o_classId)
+    public function setClassId($classId)
     {
-        $this->o_classId = $o_classId;
+        $this->classId = $classId;
     }
 
-    public function getO_ClassId()
+    public function getClassId()
     {
-        return $this->o_classId;
+        return $this->classId;
     }
 
     public function setId($id)

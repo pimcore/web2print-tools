@@ -15,6 +15,8 @@
 
 namespace Web2PrintToolsBundle\FavoriteOutputDefinition;
 
+use Pimcore\Model\DataObject\Service;
+
 /**
  * @method self|null load()
  * @method int getTotalCount()
@@ -33,7 +35,7 @@ class Listing extends \Pimcore\Model\Listing\AbstractListing
      */
     public function isValidOrderKey($key): bool
     {
-        if ($key == 'id' || $key == 'o_classId' || $key == 'description') {
+        if ($key == 'id' || $key == Service::getVersionDependentDatabaseColumnName('classId') || $key == 'description') {
             return true;
         }
 

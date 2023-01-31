@@ -304,7 +304,7 @@ class Outputchanneltable extends Document\Editable implements \Iterator
         $config = new OutputDefinition();
         $config->setId($tmpClass->id);
         $config->setChannel($tmpClass->channel);
-        $config->setO_ClassId($tmpClass->o_classId);
+        $config->setClassId($tmpClass->classId);
         $config->setConfiguration(json_encode($tmpClass->configuration));
 
         return $config;

@@ -395,7 +395,7 @@ pimcore.document.editables.outputchanneltable = Class.create(pimcore.document.ed
             params: {
                 text: params.text,
                 existing: params.existing,
-                classId: this.outputChannel.o_classId,
+                classId: this.outputChannel.classId,
                 configuration: Ext.encode(this.outputChannel.configuration),
                 force: force ? true : ''
             },
@@ -426,7 +426,7 @@ pimcore.document.editables.outputchanneltable = Class.create(pimcore.document.ed
             this.outputChannel = {
                 id: "SOME-ID",
                 channel: this.outputChannelName,
-                o_classId: this.getCurrentClassId(),
+                classId: this.getCurrentClassId(),
                 configuration: []
             };
             this.saveOutputChannelButton.setDisabled(false);
@@ -450,7 +450,7 @@ pimcore.document.editables.outputchanneltable = Class.create(pimcore.document.ed
             url: '/admin/outputdataconfig/admin/get-attribute-labels',
             method: 'POST',
             params: {
-                classId: this.outputChannel.o_classId,
+                classId: this.outputChannel.classId,
                 configuration: Ext.encode(data.config)
             },
             success: function(response) {

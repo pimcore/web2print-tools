@@ -7,7 +7,7 @@
   },
   "require": {
     "php": "^8.0",
-    "pimcore/pimcore": "^10.5 || ^11@dev",
+    "pimcore/pimcore": "^10.6 || ^11@dev",
     "pimcore/output-data-config-toolkit-bundle": "^5@dev"
   },
   "require-dev": {

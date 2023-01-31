@@ -45,7 +45,7 @@ final class Version20230124103907 extends AbstractMigration
 
     public function down(Schema $schema): void
     {
-        $table = $schema->getTable('Dao::TABLE_NAME');
+        $table = $schema->getTable(Dao::TABLE_NAME);
 
         $this->addSql(sprintf(
             'ALTER TABLE `%s` RENAME COLUMN `%s` TO `%s`',

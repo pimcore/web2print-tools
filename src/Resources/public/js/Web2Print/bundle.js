@@ -28,37 +28,37 @@ pimcore.plugin.web2print = Class.create({
     },
 
     preMenuBuild: function (e) {
-        const perspectiveCfg = pimcore.globalmanager.get("perspective");
+        const perspectiveCfg = pimcore.globalmanager.get('perspective');
 
-        if(!perspectiveCfg.inToolbar("settings.favorite_outputdefinitions")){
+        if(!perspectiveCfg.inToolbar('settings.favorite_outputdefinitions')){
             return;
         }
 
-        const user = pimcore.globalmanager.get("user");
-        if (user.admin || user.isAllowed("web2print_web2print_favourite_output_channels")) {
+        const user = pimcore.globalmanager.get('user');
+        if (user.admin || user.isAllowed('web2print_web2print_favourite_output_channels')) {
             let menu = e.detail.menu.settings;
 
             menu.items.push({
-                text: t("web2print_favorite_outputdefinitions"),
-                iconCls: "bundle_outputdataconfig_nav_icon",
+                text: t('web2print_favorite_outputdefinitions'),
+                iconCls: 'bundle_outputdataconfig_nav_icon',
                 handler: this.openFavouriteOutputChannel
             });
         }
     },
 
     pimcoreReady: function () {
-        const perspectiveCfg = pimcore.globalmanager.get("perspective");
+        const perspectiveCfg = pimcore.globalmanager.get('perspective');
 
-        if(!perspectiveCfg.inToolbar("settings.favorite_outputdefinitions")){
+        if(!perspectiveCfg.inToolbar('settings.favorite_outputdefinitions')){
             return;
         }
 
-        const user = pimcore.globalmanager.get("user");
-        if (user.admin || user.isAllowed("web2print_web2print_favourite_output_channels")) {
-            let menu = pimcore.globalmanager.get("layout_toolbar").settingsMenu;
+        const user = pimcore.globalmanager.get('user');
+        if (user.admin || user.isAllowed('web2print_web2print_favourite_output_channels')) {
+            let menu = pimcore.globalmanager.get('layout_toolbar').settingsMenu;
             menu.add({
-                text: t("web2print_favorite_outputdefinitions"),
-                iconCls: "bundle_outputdataconfig_nav_icon",
+                text: t('web2print_favorite_outputdefinitions'),
+                iconCls: 'bundle_outputdataconfig_nav_icon',
                 handler: this.openFavouriteOutputChannel
             });
         }
@@ -66,10 +66,10 @@ pimcore.plugin.web2print = Class.create({
 
     openFavouriteOutputChannel: function () {
         try {
-            pimcore.globalmanager.get("web2print.favorite_outputdefinitions").activate();
+            pimcore.globalmanager.get('web2print.favorite_outputdefinitions').activate();
         }
         catch (e) {
-            pimcore.globalmanager.add("web2print.favorite_outputdefinitions", new pimcore.bundle.web2print.favoriteOutputDefinitionsTable());
+            pimcore.globalmanager.add('web2print.favorite_outputdefinitions', new pimcore.bundle.web2print.favoriteOutputDefinitionsTable());
         }
     }
 });

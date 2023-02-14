@@ -56,6 +56,7 @@ pimcore.plugin.web2print = Class.create({
         const user = pimcore.globalmanager.get('user');
         if (user.admin || user.isAllowed('web2print_web2print_favourite_output_channels')) {
             let menu = pimcore.globalmanager.get('layout_toolbar').settingsMenu;
+
             menu.add({
                 text: t('web2print_favorite_outputdefinitions'),
                 iconCls: 'bundle_outputdataconfig_nav_icon',

@@ -16,6 +16,7 @@
 namespace Web2PrintToolsBundle\Controller;
 
 use Pimcore\Model\DataObject;
+use Pimcore\Db;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Web2PrintToolsBundle\FavoriteOutputDefinition;
@@ -146,9 +147,10 @@ class AdminController extends \Pimcore\Bundle\AdminBundle\Controller\AdminContro
 
             return $this->adminJson(['success' => true]);
         } elseif ($newName) {
+            $db = Db::get();
             $list = new FavoriteOutputDefinition\Listing();
             $classId = $request->get('classId');
-            $list->setCondition(DataObject\Service::getVersionDependentDatabaseColumnName('classId') .' = ' . $list->quote($classId) . ' AND description = ' . $list->quote($newName));
+            $list->setCondition(DataObject\Service::getVersionDependentDatabaseColumnName('classId') .' = ' . $list->quote($classId) . ' AND ' . $db->quoteIdentifier('description') . ' = ' . $list->quote($newName));
             $existingOnes = $list->load();
             if (!empty($existingOnes) && !$request->get('force')) {
                 return $this->adminJson(['success' => false, 'nameexists' => true, 'id' => $existingOnes[0]->getId()]);

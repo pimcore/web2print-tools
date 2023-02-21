@@ -21,13 +21,13 @@ pimcore.plugin.web2print = Class.create({
     initialize: function () {
         // if the new event exists, we use this
         if (pimcore.events.preMenuBuild) {
-            document.addEventListener(pimcore.events.preMenuBuild, this.preMenuBuild.bind(this));
+            document.addEventListener(pimcore.events.preMenuBuild, this.createNavigationEntry.bind(this));
         } else {
-            document.addEventListener(pimcore.events.pimcoreReady, this.pimcoreReady.bind(this));
+            document.addEventListener(pimcore.events.pimcoreReady, this.createNavigationEntry.bind(this));
         }
     },
 
-    preMenuBuild: function (e) {
+    createNavigationEntry: function (e) {
         const perspectiveCfg = pimcore.globalmanager.get('perspective');
 
         if(!perspectiveCfg.inToolbar('settings.favorite_outputdefinitions')){
@@ -35,33 +35,24 @@ pimcore.plugin.web2print = Class.create({
         }
 
         const user = pimcore.globalmanager.get('user');
-        if (user.admin || user.isAllowed('web2print_web2print_favourite_output_channels')) {
-            let menu = e.detail.menu.settings;
-
-            menu.items.push({
+        if (user.isAllowed('web2print_web2print_favourite_output_channels')) {
+            const navigationItem = {
                 text: t('web2print_favorite_outputdefinitions'),
                 iconCls: 'bundle_outputdataconfig_nav_icon',
                 handler: this.openFavouriteOutputChannel
-            });
-        }
-    },
+            };
 
-    pimcoreReady: function () {
-        const perspectiveCfg = pimcore.globalmanager.get('perspective');
+            if(e.type === pimcore.events.preMenuBuild){
+                let menu = e.detail.menu.settings;
 
-        if(!perspectiveCfg.inToolbar('settings.favorite_outputdefinitions')){
-            return;
-        }
+                menu.items.push(navigationItem);
+            }
 
-        const user = pimcore.globalmanager.get('user');
-        if (user.admin || user.isAllowed('web2print_web2print_favourite_output_channels')) {
-            let menu = pimcore.globalmanager.get('layout_toolbar').settingsMenu;
+            if(e.type === pimcore.events.pimcoreReady){
+                let menu = pimcore.globalmanager.get('layout_toolbar').settingsMenu;
 
-            menu.add({
-                text: t('web2print_favorite_outputdefinitions'),
-                iconCls: 'bundle_outputdataconfig_nav_icon',
-                handler: this.openFavouriteOutputChannel
-            });
+                menu.add(navigationItem);
+            }
         }
     },
 

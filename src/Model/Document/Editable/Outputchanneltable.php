@@ -239,10 +239,7 @@ class Outputchanneltable extends Document\Editable implements \Iterator
         return [];
     }
 
-    /**
-     * @return array
-     */
-    public function __sleep()
+    public function __sleep(): array
     {
         $finalVars = [];
         $parentVars = parent::__sleep();

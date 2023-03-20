@@ -99,7 +99,7 @@ class Dao extends \Pimcore\Model\Dao\AbstractDao
             }
         }
 
-        Helper::insertOrUpdate($this->db, self::TABLE_NAME, $data);
+        Helper::upsert($this->db, self::TABLE_NAME, $data, $this->getPrimaryKey(self::TABLE_NAME));
     }
 
     /**

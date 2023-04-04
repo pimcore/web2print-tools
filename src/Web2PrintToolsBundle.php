@@ -15,13 +15,16 @@
 
 namespace Web2PrintToolsBundle;
 
+use Pimcore\Bundle\AdminBundle\Support\BundleAdminSupportTrait;
+use Pimcore\Bundle\AdminBundle\Support\PimcoreBundleAdminSupportInterface;
 use Pimcore\Extension\Bundle\AbstractPimcoreBundle;
 use Pimcore\Extension\Bundle\Installer\InstallerInterface;
 use Pimcore\Extension\Bundle\Traits\PackageVersionTrait;
 use Web2PrintToolsBundle\Tools\Installer;
 
-class Web2PrintToolsBundle extends AbstractPimcoreBundle
+class Web2PrintToolsBundle extends AbstractPimcoreBundle implements PimcoreBundleAdminSupportInterface
 {
+    use BundleAdminSupportTrait;
     use PackageVersionTrait;
 
     protected function getComposerPackageName(): string

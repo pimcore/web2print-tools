@@ -15,6 +15,8 @@
 
 namespace Web2PrintToolsBundle\Controller;
 
+use Pimcore\Controller\Traits\JsonHelperTrait;
+use Pimcore\Controller\UserAwareController;
 use Pimcore\Db;
 use Pimcore\Model\DataObject;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,8 +28,9 @@ use Web2PrintToolsBundle\FavoriteOutputDefinition;
  *
  * @Route("/admin")
  */
-class AdminController extends \Pimcore\Bundle\AdminBundle\Controller\AdminController
+class AdminController extends UserAwareController
 {
+    use JsonHelperTrait;
     /**
      * @param Request $request
      * @Route("/favorite-output-definitions-table-proxy")
@@ -43,7 +46,7 @@ class AdminController extends \Pimcore\Bundle\AdminBundle\Controller\AdminContro
                     if (!empty($def)) {
                         $def->delete();
 
-                        return $this->adminJson(['data' => [], 'success' => true]);
+                        return $this->jsonResponse(['data' => [], 'success' => true]);
                     }
                 }
                 throw new \Exception('OutputDefinition with id ' . $idValue . ' not found.');
@@ -54,7 +57,7 @@ class AdminController extends \Pimcore\Bundle\AdminBundle\Controller\AdminContro
                     $def->setValues($data);
                     $def->save();
 
-                    return $this->adminJson(['data' => get_object_vars($def), 'success' => true]);
+                    return $this->jsonResponse(['data' => get_object_vars($def), 'success' => true]);
                 } else {
                     throw new \Exception('Definition with id ' . $data['id'] . ' not found.');
                 }
@@ -65,7 +68,7 @@ class AdminController extends \Pimcore\Bundle\AdminBundle\Controller\AdminContro
                 $def->setValues($data);
                 $def->save();
 
-                return $this->adminJson(['data' => get_object_vars($def), 'success' => true]);
+                return $this->jsonResponse(['data' => get_object_vars($def), 'success' => true]);
             }
         } else {
             $list = new FavoriteOutputDefinition\Listing();
@@ -106,7 +109,7 @@ class AdminController extends \Pimcore\Bundle\AdminBundle\Controller\AdminContro
                 $definitions[] = get_object_vars($u);
             }
 
-            return $this->adminJson(['data' => $definitions, 'success' => true, 'total' => $list->getTotalCount()]);
+            return $this->jsonResponse(['data' => $definitions, 'success' => true, 'total' => $list->getTotalCount()]);
         }
     }
 
@@ -127,7 +130,7 @@ class AdminController extends \Pimcore\Bundle\AdminBundle\Controller\AdminContro
             $definitions[] = get_object_vars($u);
         }
 
-        return $this->adminJson(['data' => $definitions, 'success' => true, 'total' => $list->getTotalCount()]);
+        return $this->jsonResponse(['data' => $definitions, 'success' => true, 'total' => $list->getTotalCount()]);
     }
 
     /**
@@ -145,7 +148,7 @@ class AdminController extends \Pimcore\Bundle\AdminBundle\Controller\AdminContro
             $savedConfig->setConfiguration($configuration);
             $savedConfig->save();
 
-            return $this->adminJson(['success' => true]);
+            return $this->jsonResponse(['success' => true]);
         } elseif ($newName) {
             $db = Db::get();
             $list = new FavoriteOutputDefinition\Listing();
@@ -153,7 +156,7 @@ class AdminController extends \Pimcore\Bundle\AdminBundle\Controller\AdminContro
             $list->setCondition(DataObject\Service::getVersionDependentDatabaseColumnName('classId') .' = ' . $list->quote($classId) . ' AND ' . $db->quoteIdentifier('description') . ' = ' . $list->quote($newName));
             $existingOnes = $list->load();
             if (!empty($existingOnes) && !$request->get('force')) {
-                return $this->adminJson(['success' => false, 'nameexists' => true, 'id' => $existingOnes[0]->getId()]);
+                return $this->jsonResponse(['success' => false, 'nameexists' => true, 'id' => $existingOnes[0]->getId()]);
             } else {
                 $newConfiguration = new FavoriteOutputDefinition();
                 $newConfiguration->setClassId($request->get('classId'));
@@ -161,10 +164,10 @@ class AdminController extends \Pimcore\Bundle\AdminBundle\Controller\AdminContro
                 $newConfiguration->setConfiguration($configuration);
                 $newConfiguration->save();
 
-                return $this->adminJson(['success' => true]);
+                return $this->jsonResponse(['success' => true]);
             }
         } else {
-            return $this->adminJson(['success' => false]);
+            return $this->jsonResponse(['success' => false]);
         }
     }
 }

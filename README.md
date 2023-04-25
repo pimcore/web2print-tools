@@ -72,7 +72,12 @@ Awesomizr.createTableOfContents({
 ```
 See example: [toc.js](https://github.com/pimcore/web2print-tools/blob/master/src/Resources/public/examples/toc.js)
 See full documentation and examples: [pdfreactor-manual](http://www.pdfreactor.com/product/doc/manual.pdf)
+## Running with Pimcore >= 11.0 
+If you are using or upgrading to pimcore 11, then please make sure that the `pimcore/admin-ui-classic-bundle` bundle is installed.
 
+```bash
+composer require pimcore/admin-ui-classic-bundle
+```
 
 ## Running with Pimcore < 5.4
 With Pimcore 5.4 the location of static Pimcore files like icons has changed. In order to make this bundle work 

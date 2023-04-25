@@ -31,6 +31,7 @@ use Web2PrintToolsBundle\FavoriteOutputDefinition;
 class AdminController extends UserAwareController
 {
     use JsonHelperTrait;
+
     /**
      * @param Request $request
      * @Route("/favorite-output-definitions-table-proxy")

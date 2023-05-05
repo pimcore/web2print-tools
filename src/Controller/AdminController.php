@@ -115,7 +115,7 @@ class AdminController extends \Pimcore\Bundle\AdminBundle\Controller\AdminContro
         $list = new FavoriteOutputDefinition\Listing();
         $list->setOrder('asc');
         $list->setOrderKey('description');
-        $condition = 'o_classId = ' . $request->get('classId');
+        $condition = 'o_classId = ' . $list->quote($request->get('classId'));
         $list->setCondition($condition);
 
         $definitions = [];

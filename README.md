@@ -20,9 +20,8 @@ Editable for adding tables with configurable columns based on the output channel
 ![outputputcanneltable](doc/img/outputputcanneltable.png)
 
 Usage:
-```php
-<?php
-echo $this->outputchanneltable("tableconfig");
+```twig
+{{ pimcore_outputchanneltable('tableconfig')|raw }}
 ```
 Also see included sample areas PrintColumnAttributeTable and PrintRowAttributeTable.
 

@@ -21,7 +21,7 @@ use Pimcore\Model\Document\Editable\EditableInterface;
 use Pimcore\Model\Element\ElementDescriptor;
 use Web2PrintToolsBundle\Model\Document\Editable\Outputchanneltable\MetaEntry;
 
-class Outputchanneltable extends Document\Editable implements \Iterator
+class Outputchanneltable extends Document\Editable implements \Iterator, EditmodeDataInterface
 {
     /**
      * @var array

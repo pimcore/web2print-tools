@@ -18,10 +18,11 @@ namespace Web2PrintToolsBundle\Model\Document\Editable;
 use OutputDataConfigToolkitBundle\OutputDefinition;
 use Pimcore\Model\Document;
 use Pimcore\Model\Document\Editable\EditableInterface;
+use Pimcore\Model\Document\Editable\EditmodeDataInterface;
 use Pimcore\Model\Element\ElementDescriptor;
 use Web2PrintToolsBundle\Model\Document\Editable\Outputchanneltable\MetaEntry;
 
-class Outputchanneltable extends Document\Editable implements \Iterator
+class Outputchanneltable extends Document\Editable implements \Iterator, EditmodeDataInterface
 {
     /**
      * @var array

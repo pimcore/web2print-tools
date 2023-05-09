@@ -1,4 +1,3 @@
 doctrine_migrations:
     migrations_paths:
-        'Web2PrintToolsBundle\Migrations': '@Web2PrintToolsBundle/Migrations'
         'Web2PrintToolsBundle\Migrations\PimcoreX': '@Web2PrintToolsBundle/Migrations/PimcoreX'

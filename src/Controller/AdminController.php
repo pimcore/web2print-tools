@@ -123,7 +123,7 @@ class AdminController extends UserAwareController
         $list = new FavoriteOutputDefinition\Listing();
         $list->setOrder('asc');
         $list->setOrderKey('description');
-        $condition = (DataObject\Service::getVersionDependentDatabaseColumnName('classId') .' = ' . $request->get('classId'));
+        $condition = (DataObject\Service::getVersionDependentDatabaseColumnName('classId') .' = ' . $list->quote($request->get('classId')));
         $list->setCondition($condition);
 
         $definitions = [];

@@ -20,9 +20,8 @@ Editable for adding tables with configurable columns based on the output channel
 ![outputputcanneltable](doc/img/outputputcanneltable.png)
 
 Usage:
-```php
-<?php
-echo $this->outputchanneltable("tableconfig");
+```twig
+{{ pimcore_outputchanneltable('tableconfig')|raw }}
 ```
 Also see included sample areas PrintColumnAttributeTable and PrintRowAttributeTable.
 
@@ -72,6 +71,7 @@ Awesomizr.createTableOfContents({
 ```
 See example: [toc.js](https://github.com/pimcore/web2print-tools/blob/master/src/Resources/public/examples/toc.js)
 See full documentation and examples: [pdfreactor-manual](http://www.pdfreactor.com/product/doc/manual.pdf)
+
 ## Running with Pimcore >= 11.0 
 If you are using or upgrading to pimcore 11, then please make sure that the `pimcore/admin-ui-classic-bundle` bundle is installed.
 

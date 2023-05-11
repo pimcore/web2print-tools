@@ -51,14 +51,13 @@ class Version20220914092411 extends BundleAwareMigration
 
     private function getClassIdColumn(Schema $schema): ?string
     {
-        $columnName = null;
         $table = $schema->getTable(DAO::TABLE_NAME);
         if ($table->hasColumn('o_classid')) {
-            $columnName = 'o_classid';
+            return 'o_classid';
         } elseif ($table->hasColumn('classId')) {
-            $columnName = 'classId';
+            return 'classId';
         }
 
-        return $columnName;
+        return null;
     }
 }

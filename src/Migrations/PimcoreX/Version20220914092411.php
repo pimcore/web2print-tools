@@ -33,14 +33,31 @@ class Version20220914092411 extends BundleAwareMigration
     public function up(Schema $schema): void
     {
         $db = Db::get();
-        $this->addSql('alter table ' . $db->quoteIdentifier(DAO::TABLE_NAME) . ' modify o_classid varchar(50) null');
+
+        if ($column = $this->getClassIdColumn($schema)) {
+            $this->addSql('alter table ' . $db->quoteIdentifier(DAO::TABLE_NAME) . ' modify ' . $column .' varchar(50) null');
+        }
         $this->addSql('alter table ' . $db->quoteIdentifier(DAO::TABLE_NAME) . ' modify ' . $db->quoteIdentifier('description') . ' varchar(255) null');
     }
 
     public function down(Schema $schema): void
     {
         $db = Db::get();
-        $this->addSql('alter table ' . $db->quoteIdentifier(DAO::TABLE_NAME) . ' modify o_classid varchar(50) not null');
+        if ($column = $this->getClassIdColumn($schema)) {
+            $this->addSql('alter table ' . $db->quoteIdentifier(DAO::TABLE_NAME) . ' modify ' . $column .' varchar(50) not null');
+        }
         $this->addSql('alter table ' . $db->quoteIdentifier(DAO::TABLE_NAME) . ' modify ' . $db->quoteIdentifier('description') . ' varchar(255) not null;');
+    }
+
+    private function getClassIdColumn(Schema $schema): ?string
+    {
+        $table = $schema->getTable(DAO::TABLE_NAME);
+        if ($table->hasColumn('o_classid')) {
+            return 'o_classid';
+        } elseif ($table->hasColumn('classId')) {
+            return 'classId';
+        }
+
+        return null;
     }
 }

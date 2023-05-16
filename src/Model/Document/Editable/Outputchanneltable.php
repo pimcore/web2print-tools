@@ -303,10 +303,9 @@ class Outputchanneltable extends Document\Editable implements \Iterator, Editmod
         $config->setId($tmpClass->id);
         $config->setChannel($tmpClass->channel);
         //TODO: Remove bc layer as soon as support for output-data-config-toolkit v4.1 is dropped
-        if(method_exists($config, 'setO_ClassId')) {
+        if (method_exists($config, 'setO_ClassId')) {
             $config->setO_ClassId($tmpClass->classId);
-        }
-        else {
+        } else {
             $config->setClassId($tmpClass->classId);
         }
         $config->setConfiguration(json_encode($tmpClass->configuration));

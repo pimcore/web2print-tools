@@ -303,6 +303,7 @@ class Outputchanneltable extends Document\Editable implements \Iterator, Editmod
         $config->setId($tmpClass->id);
         $config->setChannel($tmpClass->channel);
         $config->setClassId($tmpClass->classId);
+
         $config->setConfiguration(json_encode($tmpClass->configuration));
 
         return $config;

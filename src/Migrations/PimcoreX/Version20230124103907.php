@@ -35,23 +35,27 @@ final class Version20230124103907 extends AbstractMigration
     {
         $table = $schema->getTable(Dao::TABLE_NAME);
 
-        $this->addSql(sprintf(
-            'ALTER TABLE `%s` RENAME COLUMN `%s` TO `%s`',
-            $table->getName(),
-            'o_classId',
-            'classId'
-        ));
+        if ($table->hasColumn('o_classid')) {
+            $this->addSql(sprintf(
+                'ALTER TABLE `%s` RENAME COLUMN `%s` TO `%s`',
+                $table->getName(),
+                'o_classId',
+                'classId'
+            ));
+        }
     }
 
     public function down(Schema $schema): void
     {
         $table = $schema->getTable(Dao::TABLE_NAME);
-
-        $this->addSql(sprintf(
-            'ALTER TABLE `%s` RENAME COLUMN `%s` TO `%s`',
-            $table->getName(),
-            'classId',
-            'o_classId'
-        ));
+        
+        if ($table->hasColumn('classid')) {
+            $this->addSql(sprintf(
+                'ALTER TABLE `%s` RENAME COLUMN `%s` TO `%s`',
+                $table->getName(),
+                'classId',
+                'o_classId'
+            ));
+        }
     }
 }

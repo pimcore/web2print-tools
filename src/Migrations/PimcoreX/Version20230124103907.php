@@ -35,7 +35,7 @@ final class Version20230124103907 extends AbstractMigration
     {
         $table = $schema->getTable(Dao::TABLE_NAME);
 
-        if ($table->hasColumn('o_classid')) {
+        if ($table->hasColumn('o_classId')) {
             $this->addSql(sprintf(
                 'ALTER TABLE `%s` RENAME COLUMN `%s` TO `%s`',
                 $table->getName(),
@@ -49,7 +49,7 @@ final class Version20230124103907 extends AbstractMigration
     {
         $table = $schema->getTable(Dao::TABLE_NAME);
 
-        if ($table->hasColumn('classid')) {
+        if ($table->hasColumn('classId')) {
             $this->addSql(sprintf(
                 'ALTER TABLE `%s` RENAME COLUMN `%s` TO `%s`',
                 $table->getName(),

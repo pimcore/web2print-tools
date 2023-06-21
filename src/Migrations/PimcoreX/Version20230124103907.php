@@ -37,7 +37,7 @@ final class Version20230124103907 extends AbstractMigration
 
         if ($table->hasColumn('o_classId')) {
             $this->addSql(sprintf(
-                'ALTER TABLE `%s` RENAME COLUMN `%s` TO `%s`',
+                'ALTER TABLE `%s` CHANGE COLUMN `%s` `%s` varchar(50) NULL',
                 $table->getName(),
                 'o_classId',
                 'classId'
@@ -51,7 +51,7 @@ final class Version20230124103907 extends AbstractMigration
 
         if ($table->hasColumn('classId')) {
             $this->addSql(sprintf(
-                'ALTER TABLE `%s` RENAME COLUMN `%s` TO `%s`',
+                'ALTER TABLE `%s` CHANGE COLUMN `%s` `%s` varchar(50) NULL',
                 $table->getName(),
                 'classId',
                 'o_classId'

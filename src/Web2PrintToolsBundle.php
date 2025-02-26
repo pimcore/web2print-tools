@@ -34,7 +34,6 @@ class Web2PrintToolsBundle extends AbstractPimcoreBundle implements PimcoreBundl
         return 'pimcore/web2print-tools-bundle';
     }
 
-
     public function getContainerExtension(): ExtensionInterface
     {
         return new Web2PrintToolsExtension();

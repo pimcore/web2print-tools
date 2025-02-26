@@ -20,6 +20,8 @@ use Pimcore\Extension\Bundle\Installer\InstallerInterface;
 use Pimcore\Extension\Bundle\PimcoreBundleAdminClassicInterface;
 use Pimcore\Extension\Bundle\Traits\BundleAdminClassicTrait;
 use Pimcore\Extension\Bundle\Traits\PackageVersionTrait;
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
+use Web2PrintToolsBundle\DependencyInjection\Web2PrintToolsExtension;
 use Web2PrintToolsBundle\Tools\Installer;
 
 class Web2PrintToolsBundle extends AbstractPimcoreBundle implements PimcoreBundleAdminClassicInterface
@@ -30,6 +32,12 @@ class Web2PrintToolsBundle extends AbstractPimcoreBundle implements PimcoreBundl
     protected function getComposerPackageName(): string
     {
         return 'pimcore/web2print-tools-bundle';
+    }
+
+
+    public function getContainerExtension(): ExtensionInterface
+    {
+        return new Web2PrintToolsExtension();
     }
 
     public function getCssPaths(): array

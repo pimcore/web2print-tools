@@ -15,8 +15,6 @@
 
 namespace Web2PrintToolsBundle\FavoriteOutputDefinition;
 
-use Pimcore\Model\DataObject\Service;
-
 /**
  * @method self|null load()
  * @method int getTotalCount()

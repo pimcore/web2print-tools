@@ -122,7 +122,7 @@ class AdminController extends UserAwareController
         $list = new FavoriteOutputDefinition\Listing();
         $list->setOrder('asc');
         $list->setOrderKey('description');
-        $condition = (DataObject\Service::getVersionDependentDatabaseColumnName('classId') .' = ' . $list->quote($request->query->getString('classId')));
+        $condition = 'classId = ' . $list->quote($request->query->getString('classId'));
         $list->setCondition($condition);
 
         $definitions = [];
@@ -155,7 +155,7 @@ class AdminController extends UserAwareController
             $db = Db::get();
             $list = new FavoriteOutputDefinition\Listing();
             $classId = $request->request->getString('classId');
-            $list->setCondition(DataObject\Service::getVersionDependentDatabaseColumnName('classId') .' = ' . $list->quote($classId) . ' AND ' . $db->quoteIdentifier('description') . ' = ' . $list->quote($newName));
+            $list->setCondition('classId = ' . $list->quote($classId) . ' AND ' . $db->quoteIdentifier('description') . ' = ' . $list->quote($newName));
             $existingOnes = $list->load();
             if (!empty($existingOnes) && !$request->request->getBoolean('force')) {
                 return $this->jsonResponse(['success' => false, 'nameexists' => true, 'id' => $existingOnes[0]->getId()]);

@@ -34,7 +34,7 @@ class Listing extends \Pimcore\Model\Listing\AbstractListing
      */
     public function isValidOrderKey($key): bool
     {
-        if ($key == 'id' || $key == Service::getVersionDependentDatabaseColumnName('classId') || $key == 'description') {
+        if ($key == 'id' || $key == 'classId' || $key == 'description') {
             return true;
         }
 

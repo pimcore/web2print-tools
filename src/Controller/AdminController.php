@@ -16,12 +16,12 @@
 namespace Pimcore\Bundle\Web2PrintToolsBundle\Controller;
 
 use Exception;
+use Pimcore\Bundle\Web2PrintToolsBundle\FavoriteOutputDefinition;
 use Pimcore\Controller\Traits\JsonHelperTrait;
 use Pimcore\Controller\UserAwareController;
 use Pimcore\Db;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Pimcore\Bundle\Web2PrintToolsBundle\FavoriteOutputDefinition;
 
 /**
  * Class AdminController

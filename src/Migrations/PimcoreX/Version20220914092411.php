@@ -16,9 +16,9 @@
 namespace Pimcore\Bundle\Web2PrintToolsBundle\Migrations\PimcoreX;
 
 use Doctrine\DBAL\Schema\Schema;
+use Pimcore\Bundle\Web2PrintToolsBundle\FavoriteOutputDefinition\Dao;
 use Pimcore\Db;
 use Pimcore\Migrations\BundleAwareMigration;
-use Pimcore\Bundle\Web2PrintToolsBundle\FavoriteOutputDefinition\Dao;
 
 /**
  * Auto-generated Migration: Please modify to your needs!

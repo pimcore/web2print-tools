@@ -18,9 +18,9 @@ namespace Pimcore\Bundle\Web2PrintToolsBundle\Twig;
 use OutputDataConfigToolkitBundle\ConfigElement\IConfigElement;
 use OutputDataConfigToolkitBundle\OutputDefinition;
 use OutputDataConfigToolkitBundle\Service;
+use Pimcore\Bundle\Web2PrintToolsBundle\Tools\Tool;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
-use Pimcore\Bundle\Web2PrintToolsBundle\Tools\Tool;
 
 class OutputChannelExtension extends AbstractExtension
 {

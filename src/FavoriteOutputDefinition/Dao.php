@@ -15,8 +15,8 @@
 
 namespace Pimcore\Bundle\Web2PrintToolsBundle\FavoriteOutputDefinition;
 
-use Pimcore\Db\Helper;
 use Pimcore\Bundle\Web2PrintToolsBundle\FavoriteOutputDefinition;
+use Pimcore\Db\Helper;
 
 /**
  * @property FavoriteOutputDefinition $model

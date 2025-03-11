@@ -17,9 +17,9 @@ namespace Pimcore\Bundle\Web2PrintToolsBundle\Migrations;
 
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
+use Pimcore\Bundle\Web2PrintToolsBundle\FavoriteOutputDefinition\Dao;
 use Pimcore\Config;
 use Pimcore\Model\Tool\SettingsStore;
-use Pimcore\Bundle\Web2PrintToolsBundle\FavoriteOutputDefinition\Dao;
 
 /**
  * Auto-generated Migration: Please modify to your needs!

@@ -15,10 +15,10 @@
 
 namespace Pimcore\Bundle\Web2PrintToolsBundle\Tools;
 
-use Pimcore\Extension\Bundle\Installer\Exception\InstallationException;
-use Pimcore\Extension\Bundle\Installer\SettingsStoreAwareInstaller;
 use Pimcore\Bundle\Web2PrintToolsBundle\FavoriteOutputDefinition\Dao;
 use Pimcore\Bundle\Web2PrintToolsBundle\Migrations\PimcoreX\Version20230124103907;
+use Pimcore\Extension\Bundle\Installer\Exception\InstallationException;
+use Pimcore\Extension\Bundle\Installer\SettingsStoreAwareInstaller;
 
 class Installer extends SettingsStoreAwareInstaller
 {

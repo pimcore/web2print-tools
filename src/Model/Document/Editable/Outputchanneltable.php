@@ -16,11 +16,11 @@
 namespace Pimcore\Bundle\Web2PrintToolsBundle\Model\Document\Editable;
 
 use OutputDataConfigToolkitBundle\OutputDefinition;
+use Pimcore\Bundle\Web2PrintToolsBundle\Model\Document\Editable\Outputchanneltable\MetaEntry;
 use Pimcore\Model\Document;
 use Pimcore\Model\Document\Editable\EditableInterface;
 use Pimcore\Model\Document\Editable\EditmodeDataInterface;
 use Pimcore\Model\Element\ElementDescriptor;
-use Pimcore\Bundle\Web2PrintToolsBundle\Model\Document\Editable\Outputchanneltable\MetaEntry;
 
 class Outputchanneltable extends Document\Editable implements \Iterator, EditmodeDataInterface
 {

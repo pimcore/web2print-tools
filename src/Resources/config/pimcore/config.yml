@@ -2,4 +2,4 @@ pimcore:
     documents:
         editables:
             map:
-                outputchanneltable: Web2PrintToolsBundle\Model\Document\Editable\Outputchanneltable
+                outputchanneltable: Pimcore\Bundle\Web2PrintToolsBundle\Model\Document\Editable\Outputchanneltable

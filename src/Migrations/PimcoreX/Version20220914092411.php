@@ -13,12 +13,12 @@
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Web2PrintToolsBundle\Migrations\PimcoreX;
+namespace Pimcore\Bundle\Web2PrintToolsBundle\Migrations\PimcoreX;
 
 use Doctrine\DBAL\Schema\Schema;
 use Pimcore\Db;
 use Pimcore\Migrations\BundleAwareMigration;
-use Web2PrintToolsBundle\FavoriteOutputDefinition\Dao;
+use Pimcore\Bundle\Web2PrintToolsBundle\FavoriteOutputDefinition\Dao;
 
 /**
  * Auto-generated Migration: Please modify to your needs!

@@ -13,7 +13,7 @@
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Web2PrintToolsBundle\Tools;
+namespace Pimcore\Bundle\Web2PrintToolsBundle\Tools;
 
 use OutputDataConfigToolkitBundle\ConfigElement\Operator\Group;
 

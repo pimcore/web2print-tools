@@ -13,14 +13,14 @@
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Web2PrintToolsBundle\Twig;
+namespace Pimcore\Bundle\Web2PrintToolsBundle\Twig;
 
 use OutputDataConfigToolkitBundle\ConfigElement\IConfigElement;
 use OutputDataConfigToolkitBundle\OutputDefinition;
 use OutputDataConfigToolkitBundle\Service;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
-use Web2PrintToolsBundle\Tools\Tool;
+use Pimcore\Bundle\Web2PrintToolsBundle\Tools\Tool;
 
 class OutputChannelExtension extends AbstractExtension
 {

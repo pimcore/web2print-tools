@@ -13,9 +13,9 @@
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Web2PrintToolsBundle\FavoriteOutputDefinition\Listing;
+namespace Pimcore\Bundle\Web2PrintToolsBundle\FavoriteOutputDefinition\Listing;
 
-use Web2PrintToolsBundle\FavoriteOutputDefinition;
+use Pimcore\Bundle\Web2PrintToolsBundle\FavoriteOutputDefinition;
 
 /**
  * @property FavoriteOutputDefinition\Listing $model

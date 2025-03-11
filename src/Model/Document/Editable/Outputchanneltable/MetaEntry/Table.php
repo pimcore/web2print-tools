@@ -13,9 +13,9 @@
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Web2PrintToolsBundle\Model\Document\Editable\Outputchanneltable\MetaEntry;
+namespace Pimcore\Bundle\Web2PrintToolsBundle\Model\Document\Editable\Outputchanneltable\MetaEntry;
 
-use Web2PrintToolsBundle\Model\Document\Editable\Outputchanneltable\MetaEntry;
+use Pimcore\Bundle\Web2PrintToolsBundle\Model\Document\Editable\Outputchanneltable\MetaEntry;
 
 class Table extends MetaEntry
 {

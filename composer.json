@@ -19,13 +19,13 @@
   },
   "autoload": {
     "psr-4": {
-      "Web2PrintToolsBundle\\": "src/"
+      "Pimcore\\Bundle\\Web2PrintToolsBundle\\": "src/"
     }
   },
   "extra": {
     "pimcore": {
       "bundles": [
-        "Web2PrintToolsBundle\\Web2PrintToolsBundle"
+        "Pimcore\\Bundle\\Web2PrintToolsBundle"
       ]
     }
   }

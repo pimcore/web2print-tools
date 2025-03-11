@@ -13,7 +13,7 @@
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Web2PrintToolsBundle\Controller;
+namespace Pimcore\Bundle\Web2PrintToolsBundle\Controller;
 
 use Exception;
 use Pimcore\Controller\Traits\JsonHelperTrait;
@@ -21,7 +21,7 @@ use Pimcore\Controller\UserAwareController;
 use Pimcore\Db;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Web2PrintToolsBundle\FavoriteOutputDefinition;
+use Pimcore\Bundle\Web2PrintToolsBundle\FavoriteOutputDefinition;
 
 /**
  * Class AdminController

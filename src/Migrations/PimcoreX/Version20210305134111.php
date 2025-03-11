@@ -13,7 +13,7 @@
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Web2PrintToolsBundle\Migrations\PimcoreX;
+namespace Pimcore\Bundle\Web2PrintToolsBundle\Migrations\PimcoreX;
 
 use Doctrine\DBAL\Schema\Schema;
 use Pimcore\Migrations\BundleAwareMigration;

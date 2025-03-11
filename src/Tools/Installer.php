@@ -13,12 +13,12 @@
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Web2PrintToolsBundle\Tools;
+namespace Pimcore\Bundle\Web2PrintToolsBundle\Tools;
 
 use Pimcore\Extension\Bundle\Installer\Exception\InstallationException;
 use Pimcore\Extension\Bundle\Installer\SettingsStoreAwareInstaller;
-use Web2PrintToolsBundle\FavoriteOutputDefinition\Dao;
-use Web2PrintToolsBundle\Migrations\PimcoreX\Version20230124103907;
+use Pimcore\Bundle\Web2PrintToolsBundle\FavoriteOutputDefinition\Dao;
+use Pimcore\Bundle\Web2PrintToolsBundle\Migrations\PimcoreX\Version20230124103907;
 
 class Installer extends SettingsStoreAwareInstaller
 {

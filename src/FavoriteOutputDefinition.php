@@ -13,7 +13,7 @@
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Web2PrintToolsBundle;
+namespace Pimcore\Bundle\Web2PrintToolsBundle;
 
 use Pimcore\Logger;
 

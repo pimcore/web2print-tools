@@ -5,16 +5,16 @@ services:
         autoconfigure: true
         public: false
 
-    Web2PrintToolsBundle\Twig\OutputChannelExtension:
+    Pimcore\Bundle\Web2PrintToolsBundle\Twig\OutputChannelExtension:
         tags: ['twig.extension']
 
 
-    Web2PrintToolsBundle\Controller\:
+    Pimcore\Bundle\Web2PrintToolsBundle\Controller\:
         resource: '../../Controller'
         tags: ['controller.service_arguments']
 
 
-    Web2PrintToolsBundle\Tools\Installer:
+    Pimcore\Bundle\Web2PrintToolsBundle\Tools\Installer:
         public: true
         arguments:
             # fetch the bundle via expression language

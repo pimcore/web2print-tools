@@ -13,7 +13,7 @@
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Web2PrintToolsBundle\FavoriteOutputDefinition;
+namespace Pimcore\Bundle\Web2PrintToolsBundle\FavoriteOutputDefinition;
 
 /**
  * @method self|null load()

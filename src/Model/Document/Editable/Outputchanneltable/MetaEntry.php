@@ -13,7 +13,7 @@
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Web2PrintToolsBundle\Model\Document\Editable\Outputchanneltable;
+namespace Pimcore\Bundle\Web2PrintToolsBundle\Model\Document\Editable\Outputchanneltable;
 
 class MetaEntry
 {

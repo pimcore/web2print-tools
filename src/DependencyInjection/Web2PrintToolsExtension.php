@@ -23,7 +23,7 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 class Web2PrintToolsExtension extends Extension implements PrependExtensionInterface
 {
-    public function prepend(ContainerBuilder $container)
+    public function prepend(ContainerBuilder $container): void
     {
         if ($container->hasExtension('doctrine_migrations')) {
             $loader = new YamlFileLoader(
@@ -35,7 +35,7 @@ class Web2PrintToolsExtension extends Extension implements PrependExtensionInter
         }
     }
 
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         // use this to load your custom configurations
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));

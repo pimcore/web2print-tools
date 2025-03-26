@@ -20,21 +20,18 @@ use Pimcore\Controller\Traits\JsonHelperTrait;
 use Pimcore\Controller\UserAwareController;
 use Pimcore\Db;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Web2PrintToolsBundle\FavoriteOutputDefinition;
 
 /**
  * Class AdminController
- *
- * @Route("/admin")
  */
+#[Route('/admin')]
 class AdminController extends UserAwareController
 {
     use JsonHelperTrait;
 
-    /**
-     * @Route("/favorite-output-definitions-table-proxy")
-     */
+    #[Route('/favorite-output-definitions-table-proxy')]
     public function favoriteOutputDefinitionsTableProxyAction(Request $request)
     {
         if ($request->request->getString('data')) {
@@ -113,9 +110,7 @@ class AdminController extends UserAwareController
 
     }
 
-    /**
-     * @Route("/favorite-output-definitions")
-     */
+    #[Route('/favorite-output-definitions')]
     public function favoriteOutputDefinitionsAction(Request $request)
     {
         $list = new FavoriteOutputDefinition\Listing();
@@ -132,9 +127,7 @@ class AdminController extends UserAwareController
         return $this->jsonResponse(['data' => $definitions, 'success' => true, 'total' => $list->getTotalCount()]);
     }
 
-    /**
-     * @Route("/save-or-update-favorite-output-definition")
-     */
+    #[Route('/save-or-update-favorite-output-definition')]
     public function saveOrUpdateFavoriteOutputDefinitionAction(Request $request)
     {
 

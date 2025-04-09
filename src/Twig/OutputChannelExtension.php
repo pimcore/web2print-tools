@@ -24,7 +24,7 @@ use Web2PrintToolsBundle\Tools\Tool;
 
 class OutputChannelExtension extends AbstractExtension
 {
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
             new TwigFunction('output_channel_max_group_depth', [$this, 'getMaxGroupDepth']),

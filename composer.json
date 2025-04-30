@@ -1,7 +1,7 @@
 {
   "name": "pimcore/web2print-tools-bundle",
   "type": "pimcore-bundle",
-  "license": "GPL-3.0+",
+  "license": "proprietary",
   "config": {
     "sort-packages": true
   },

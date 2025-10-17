@@ -12,11 +12,11 @@
 
 namespace Web2PrintToolsBundle\Controller;
 
-use Pimcore\Helper\ParameterBagHelper;
 use Exception;
 use Pimcore\Controller\Traits\JsonHelperTrait;
 use Pimcore\Controller\UserAwareController;
 use Pimcore\Db;
+use Pimcore\Helper\ParameterBagHelper;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
 use Web2PrintToolsBundle\FavoriteOutputDefinition;

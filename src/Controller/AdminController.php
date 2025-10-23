@@ -16,6 +16,7 @@ use Exception;
 use Pimcore\Controller\Traits\JsonHelperTrait;
 use Pimcore\Controller\UserAwareController;
 use Pimcore\Db;
+use Pimcore\Helper\ParameterBagHelper;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
 use Web2PrintToolsBundle\FavoriteOutputDefinition;
@@ -80,8 +81,8 @@ class AdminController extends UserAwareController
             }
         }
 
-        $list->setLimit($request->request->getInt('limit'));
-        $list->setOffset($request->request->getInt('start'));
+        $list->setLimit(ParameterBagHelper::getInt($request->request, 'limit'));
+        $list->setOffset(ParameterBagHelper::getInt($request->request, 'start'));
 
         $condition = '1 = 1';
         if ($request->request->getString('filter')) {
@@ -129,7 +130,7 @@ class AdminController extends UserAwareController
     {
 
         $configuration = $request->request->getString('configuration');
-        $id = $request->request->getInt('existing');
+        $id = ParameterBagHelper::getInt($request->request, 'existing');
         $newName = strip_tags($request->request->getString('text'));
         $savedConfig = FavoriteOutputDefinition::getById($id);
 

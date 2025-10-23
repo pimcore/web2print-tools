@@ -10,7 +10,7 @@
   "require": {
     "php": "~8.3.0 || ~8.4.0",
     "pimcore/admin-ui-classic-bundle": "^2.0",
-    "pimcore/pimcore": "^12.0",
+    "pimcore/pimcore": "^12.3",
     "pimcore/output-data-config-toolkit-bundle": "^6.0"
   },
   "require-dev": {

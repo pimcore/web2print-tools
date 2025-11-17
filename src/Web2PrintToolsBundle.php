@@ -20,6 +20,7 @@ use Pimcore\Extension\Bundle\Traits\PackageVersionTrait;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Web2PrintToolsBundle\DependencyInjection\Web2PrintToolsExtension;
 use Web2PrintToolsBundle\Tools\Installer;
+
 /**
  * deprecated version 6.1
  */

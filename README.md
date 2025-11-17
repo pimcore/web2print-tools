@@ -1,5 +1,8 @@
 # Web2Print Tools Bundle for Pimcore
 
+> [!WARNING]
+> This bundle won't be migrated to Pimcore Studio and therefore will be deprecated with 6.1.
+
 Adds following additional features to the web2print functionality of Pimcore.
 - Favorite Output Channels
 - Document Editable for Configurable Tables

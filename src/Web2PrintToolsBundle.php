@@ -20,11 +20,22 @@ use Pimcore\Extension\Bundle\Traits\PackageVersionTrait;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Web2PrintToolsBundle\DependencyInjection\Web2PrintToolsExtension;
 use Web2PrintToolsBundle\Tools\Installer;
-
+/**
+ * deprecated version 6.1
+ */
 class Web2PrintToolsBundle extends AbstractPimcoreBundle implements PimcoreBundleAdminClassicInterface
 {
     use BundleAdminClassicTrait;
     use PackageVersionTrait;
+
+    public function __construct()
+    {
+        trigger_deprecation(
+            'pimcore/web2print-tools-bundle',
+            '6.1',
+            'The Web2PrintToolsBundle is deprecated and will be discontinued with Pimcore Studio.'
+        );
+    }
 
     protected function getComposerPackageName(): string
     {

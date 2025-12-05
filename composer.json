@@ -22,6 +22,9 @@
     }
   },
   "extra": {
+    "branch-alias": {
+      "dev-6.x": "6.1.x-dev"
+    },
     "pimcore": {
       "bundles": [
         "Web2PrintToolsBundle\\Web2PrintToolsBundle"

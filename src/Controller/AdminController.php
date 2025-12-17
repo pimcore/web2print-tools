@@ -70,7 +70,7 @@ class AdminController extends UserAwareController
                 $def->setValues($data);
                 $def->save();
 
-                return $this->jsonResponse(['data' => get_object_vtars($def), 'success' => true]);
+                return $this->jsonResponse(['data' => get_object_vars($def), 'success' => true]);
             }
         }
 

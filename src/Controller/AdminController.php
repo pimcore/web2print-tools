@@ -121,8 +121,6 @@ class AdminController extends UserAwareController
      */
     public function favoriteOutputDefinitionsAction(Request $request)
     {
-        $this->checkPermission('web2print_web2print_favourite_output_channels');
-        
         $list = new FavoriteOutputDefinition\Listing();
         $list->setOrder('asc');
         $list->setOrderKey('description');
@@ -142,8 +140,6 @@ class AdminController extends UserAwareController
      */
     public function saveOrUpdateFavoriteOutputDefinitionAction(Request $request)
     {
-        $this->checkPermission('web2print_web2print_favourite_output_channels');
-        
         $configuration = $request->request->getString('configuration');
         $id = $request->request->getInt('existing');
         $newName = strip_tags($request->request->getString('text'));

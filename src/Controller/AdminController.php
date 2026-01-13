@@ -38,6 +38,8 @@ class AdminController extends UserAwareController
      */
     public function favoriteOutputDefinitionsTableProxyAction(Request $request)
     {
+        $this->checkPermission('web2print_web2print_favourite_output_channels');
+        
         if ($request->request->getString('data')) {
             $data = json_decode($request->request->getString('data'), true);
             if ($request->query->getString('xaction') === 'destroy') {
@@ -138,7 +140,6 @@ class AdminController extends UserAwareController
      */
     public function saveOrUpdateFavoriteOutputDefinitionAction(Request $request)
     {
-
         $configuration = $request->request->getString('configuration');
         $id = $request->request->getInt('existing');
         $newName = strip_tags($request->request->getString('text'));

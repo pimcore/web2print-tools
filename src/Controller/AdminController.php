@@ -39,7 +39,7 @@ class AdminController extends UserAwareController
     public function favoriteOutputDefinitionsTableProxyAction(Request $request)
     {
         $this->checkPermission('web2print_web2print_favourite_output_channels');
-        
+
         if ($request->request->getString('data')) {
             $data = json_decode($request->request->getString('data'), true);
             if ($request->query->getString('xaction') === 'destroy') {
